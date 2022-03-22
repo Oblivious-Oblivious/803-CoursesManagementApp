@@ -20,4 +20,4 @@
 
 - [Kostas Georgiou]()
 - [Oblivious](https://github.com/Oblivious-Oblivious)
-- [Thanasis Koureas]()
+- [Thanasis Koureas](https://github.com/thanoskour)

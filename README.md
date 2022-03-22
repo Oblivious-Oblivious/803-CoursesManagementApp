@@ -18,6 +18,6 @@
 
 ## Contributors
 
-- [Kostas Georgiou](https://github.com/cs04333)
-- [Oblivious](https://github.com/Oblivious-Oblivious)
-- [Thanasis Koureas](https://github.com/thanoskour)
+- [Kostas Georgiou](https://github.com/cs04333)                   - Scrum Master
+- [Thanasis Papapostolou](https://github.com/Oblivious-Oblivious) - Maintainer
+- [Thanasis Koureas](https://github.com/thanoskour)               - Product Manager

@@ -18,6 +18,6 @@
 
 ## Contributors
 
-- [Kostas Georgiou]()
+- [Kostas Georgiou](https://github.com/cs04333)
 - [Oblivious](https://github.com/Oblivious-Oblivious)
 - [Thanasis Koureas](https://github.com/thanoskour)

@@ -6,8 +6,6 @@
 
 ## Development
 
-* Assign Roles
-
 ## Contributing
 
 1. Fork it (<https://github.com/Oblivious-Oblivious/CoursesManagementApp/fork>)

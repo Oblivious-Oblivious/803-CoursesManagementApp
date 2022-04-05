@@ -7,23 +7,37 @@ FLAGS =
 WARNINGS =
 REMOVE_WARN =
 HEADERS =
-LIBS = -cp ./libs/jspec.jar
+LIBS = -classpath ./libs/jspec.jar:.
 
-INPUT = src/**/*.java
-OUTPUT = src/**/*.class
+APPINPUT = app/src/**/*.java
+CLIINPUT = client/cli/*.java
+APPTESTINPUT = app/test/**/*.java app/test/TestRunner.java
+GUIINPUT =
+WEBINPUT =
 
-all: compiler
+APPOUTPUT = app/src/**/*.class
+APPTESTOUTPUT = app/test/**/*.class app/test/*.class
+CLIOUTPUT = client/cli/*.class
+GUIOUTPUT =
+WEBOUTPUT =
 
-compiler:
-	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(INPUT)
+all: compile
+
+compile:
+	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT)
 	@echo
 
-#run:
-#	cd src && $(JAVA) client/EntryPoint
+test: compile
+	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(INPUT) $(APPTESTINPUT)
+	$(JAVA) $(LIBS) app/test/TestRunner
 
-test: compiler
-# -cp ../libs/jspec.jar 
-	cd test && $(JAVA) TestRunner
+run_cli:
+	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
+	$(JAVA) client/cli/EntryPoint
+
+run_gui:
+
+run_web:
 
 clean:
-	$(RM) $(OUTPUT)
+	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT)

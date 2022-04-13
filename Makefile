@@ -31,13 +31,13 @@ test: compile
 	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(INPUT) $(APPTESTINPUT)
 	$(JAVA) $(LIBS) app/test/TestRunner
 
-run_cli:
+cli:
 	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
 	$(JAVA) client/cli/EntryPoint
 
-run_gui:
+gui:
 
-run_web:
+web:
 
 clean:
 	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT)

@@ -12,11 +12,4 @@ public class Course {
         this.year = year;
         this.semester = semester;
     }
-
-    public void update(String name, String syllabus, int year, int semester) {
-        this.name = name;
-        this.syllabus = syllabus;
-        this.year = year;
-        this.semester = semester;
-    }
 }

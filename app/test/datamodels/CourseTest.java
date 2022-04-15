@@ -23,14 +23,6 @@ public class CourseTest extends SpecModule {
                 assert_that(c.year).equals_to(2022);
                 assert_that(c.semester).equals_to(4);
             });
-
-            it("updates data with new ones", () -> {
-                c.update("Digital Design", "Description 2", 2023, 5);
-                assert_that(c.name).equals_to("Digital Design");
-                assert_that(c.syllabus).equals_to("Description 2");
-                assert_that(c.year).equals_to(2023);
-                assert_that(c.semester).equals_to(5);
-            });
         });
     }
 }

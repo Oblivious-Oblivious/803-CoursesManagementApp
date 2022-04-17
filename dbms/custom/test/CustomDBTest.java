@@ -7,33 +7,28 @@ import dbms.custom.src.*;
 
 public class CustomDBTest extends SpecModule {
     private CustomDB db = null;
+
     public void spec_code() {
         describe("Basic CustomDB function", () -> {
-            before_each(() -> 
-            {
-                
-            });
-
-            it("Creates a String DB", () -> 
-            {
+            it("Creates a String DB", () -> {
                 this.db = new CustomDB<String>("testdb_1");
                 assert_that(this.db).isnot(null);
             });
-            it("Creates an Integer DB", () -> 
-            {
+
+            it("Creates an Integer DB", () -> {
                 this.db = new CustomDB<Integer>("testdb_2");
                 assert_that(this.db).isnot(null);
             });
-            it("Adds a String to the DB", () -> 
-            {
+
+            it("Adds a String to the DB", () -> {
                 this.db = new CustomDB<String>("testdb_3");
                 String id = "entry1";
                 String item = "Lesson";
                 this.db.add(id, item);
                 assert_that(this.db.get(id)).equals_to("Lesson");
             });
-             it("Adds 3 Integers to the DB", () -> 
-            {
+            
+            it("Adds 3 Integers to the DB", () -> {
                 this.db = new CustomDB<Integer>("testdb_4");
                 int x = 1;
                 int y = 2;
@@ -47,8 +42,8 @@ public class CustomDBTest extends SpecModule {
                 int third = (Integer)this.db.get("3rd");
                 assert_that(first+second+third).equals_to(48);
             });
-             it("Gets all items", () -> 
-            {
+            
+            it("Gets all items", () -> {
                 this.db = new CustomDB<String>("testdb_5");
                 String id1 = "entry1";
                 String id2 = "entry2";
@@ -65,8 +60,8 @@ public class CustomDBTest extends SpecModule {
                 assert_that(items.get(id2)).equals_to(item2);
                 assert_that(items.get(id3)).equals_to(item3);
             });
-            it("Updates the new item", () -> 
-            {
+
+            it("Updates the new item", () -> {
                 this.db = new CustomDB<String>("testdb_6");
                 String id1 = "Lecture1";
                 String item1 = "Digital Design I";
@@ -75,8 +70,8 @@ public class CustomDBTest extends SpecModule {
 
                 assert_that(this.db.get(id1)).equals_to("Operating Systems");
             });
-            it("authenticates login data", () -> 
-            {
+            
+            it("authenticates login data", () -> {
                 this.db = new CustomDB<LoginToken>("testdb_7");
                 this.db.add("rid1", new LoginToken("oblivious", "123456"));
                 this.db.add("rid2", new LoginToken("batman", "3276"));
@@ -95,18 +90,3 @@ public class CustomDBTest extends SpecModule {
         });
     }
 }
-
-/*
-add -> (add with information)
-browse -> (select all and view)
-update -> (update with new information)
-remove 
-login -> (check for equality)
-*/
-
-/*
-this.db = new CustomDB<String>()
-this.db = new CustomDB<Double>()
-this.db = new CustomDB<Student>()
-this.db = new CustomDB<Course>()
- */

@@ -3,14 +3,14 @@ package app.src.entities;
 public class StudentRegistration {
     public String id;
     public String name;
-    public int year_of_registration;
-    public int semester;
+    public String year_of_registration;
+    public String semester;
 
     public StudentRegistration(
         String id,
         String name,
-        int year_of_registration,
-        int semester
+        String year_of_registration,
+        String semester
     ) {
         this.id = id;
         this.name = name;

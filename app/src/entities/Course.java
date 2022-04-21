@@ -7,8 +7,8 @@ public class Course {
     public String name;
     public String syllabus;
     public String instructor;
-    public int year;
-    public int semester;
+    public String year;
+    public String semester;
 
     public ArrayList<StudentRegistration> students;
 
@@ -17,8 +17,8 @@ public class Course {
         String name,
         String syllabus,
         String instructor,
-        int year,
-        int semester
+        String year,
+        String semester
     ) {
         this.id = id;
         this.name = name;

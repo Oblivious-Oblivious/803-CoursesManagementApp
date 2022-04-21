@@ -27,6 +27,10 @@ public class CourseTest extends SpecModule {
                 assert_that(c.year).equals_to(2022);
                 assert_that(c.semester).equals_to(4);
             });
+
+            it("ensures that a new course object has no students registered", () -> {
+                assert_that(c.students.size()).equals_to(0);
+            });
         });
     }
 }

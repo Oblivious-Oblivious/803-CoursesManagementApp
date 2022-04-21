@@ -10,7 +10,7 @@ public class Course {
     public int year;
     public int semester;
 
-    // public ArrayList<StudentRegistration> students;
+    public ArrayList<StudentRegistration> students;
 
     public Course(
         String id,
@@ -27,6 +27,6 @@ public class Course {
         this.year = year;
         this.semester = semester;
 
-        // this.students = new ArrayList<StudentRegistration>();
+        this.students = new ArrayList<StudentRegistration>();
     }
 }

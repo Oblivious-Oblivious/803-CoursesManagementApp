@@ -1,14 +1,12 @@
 package app.test;
 
 import jspec.*;
-
-import app.src.datamodels.*;
-import app.test.datamodels.*;
+import app.src.entities.*;
+import app.test.entities.*;
 
 public class TestRunner {
     public static void main(String args[]) {
         SpecModule modules[] = {
-            new ListOfCoursesTest(),
             new CourseTest(),
         };
         Spec s = new Spec(modules);

@@ -1,15 +1,15 @@
-package dbms.custom.src;
+package app.src.register;
 
-public class LoginToken {
+public class RegistrationToken {
     public String username;
     public String password;
 
-    public LoginToken(String username, String password) {
+    public RegistrationToken(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public boolean equals(LoginToken other) {
+    public boolean equals(RegistrationToken other) {
         return this.username.equals(other.username)
             && this.password.equals(other.password);
     }

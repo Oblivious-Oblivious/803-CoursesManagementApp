@@ -1,91 +1,71 @@
 package dbms.custom.test;
 
 import jspec.*;
-import java.util.HashMap;
+import java.util.ArrayList;
 
+import app.src.entities.Schema;
 import dbms.custom.src.*;
 
 public class CustomDBTest extends SpecModule {
-    private CustomDB db = null;
-
     public void spec_code() {
         describe("Basic CustomDB function", () -> {
-            it("Creates a String DB", () -> {
-                this.db = new CustomDB<String>("testdb_1");
-                assert_that(this.db).isnot(null);
+            it("creates a DB", () -> {
+                CustomDB db = new CustomDB("testdb_1");
+                assert_that(db).isnot(null);
             });
 
-            it("Creates an Integer DB", () -> {
-                this.db = new CustomDB<Integer>("testdb_2");
-                assert_that(this.db).isnot(null);
-            });
-
-            it("Adds a String to the DB", () -> {
-                this.db = new CustomDB<String>("testdb_3");
+            it("adds a String to the DB", () -> {
+                CustomDB db = new CustomDB("testdb_2");
                 String id = "entry1";
-                String item = "Lesson";
-                this.db.add(id, item);
-                assert_that(this.db.get(id)).equals_to("Lesson");
-            });
-            
-            it("Adds 3 Integers to the DB", () -> {
-                this.db = new CustomDB<Integer>("testdb_4");
-                int x = 1;
-                int y = 2;
-                int z = 45;
-                this.db.add("1st",x);
-                this.db.add("2nd",y);
-                this.db.add("3rd",z);
+                String str = "Lesson";
+                Schema item = new Schema<String>(id, str);
 
-                int first = (Integer)this.db.get("1st");
-                int second = (Integer)this.db.get("2nd");
-                int third = (Integer)this.db.get("3rd");
-                assert_that(first+second+third).equals_to(48);
+                db.save(item);
+                assert_that(db.get_by_id(id).equals(item)).is(true);
             });
             
-            it("Gets all items", () -> {
-                this.db = new CustomDB<String>("testdb_5");
+            it("adds 3 Integers to the DB", () -> {
+                CustomDB db = new CustomDB("testdb_3");
+                db.save(new Schema<Integer>("3rd",39));
+                db.save(new Schema<Integer>("1st",1));
+                db.save(new Schema<Integer>("2nd",2));
+
+                int first = (Integer)db.get_by_id("1st").value();
+                int third = (Integer)db.get_by_id("3rd").value();
+                int second = (Integer)db.get_by_id("2nd").value();
+                assert_that(first+second+third).equals_to(42);
+            });
+            
+            it("gets all items", () -> {
+                CustomDB db = new CustomDB("testdb_4");
                 String id1 = "entry1";
                 String id2 = "entry2";
                 String id3 = "entry3";
                 String item1 = "Lesson";
                 String item2 = "Less3on";
                 String item3 = "Lesson4";
-                this.db.add(id1, item1);
-                this.db.add(id2, item2);
-                this.db.add(id3, item3);
+                Schema s1 = new Schema<String>(id1, item1);
+                Schema s2 = new Schema<String>(id2, item2);
+                Schema s3 = new Schema<String>(id3, item3);
+                db.save(s1);
+                db.save(s2);
+                db.save(s3);
 
-                HashMap<String, String> items = this.db.get_all_items();
-                assert_that(items.get(id1)).equals_to(item1);
-                assert_that(items.get(id2)).equals_to(item2);
-                assert_that(items.get(id3)).equals_to(item3);
+                ArrayList<Schema> items = db.get_all_items();
+                assert_that(items.get(0).equals(s1)).is(true);
+                assert_that(items.get(2).equals(s3)).is(true);
+                assert_that(items.get(1).equals(s2)).is(true);
             });
 
-            it("Updates the new item", () -> {
-                this.db = new CustomDB<String>("testdb_6");
+            it("updates the new item", () -> {
+                CustomDB db = new CustomDB("testdb_5");
                 String id1 = "Lecture1";
                 String item1 = "Digital Design I";
-                this.db.add(id1, item1);
-                this.db.update(id1,"Operating Systems");
 
-                assert_that(this.db.get(id1)).equals_to("Operating Systems");
-            });
-            
-            it("authenticates login data", () -> {
-                this.db = new CustomDB<LoginToken>("testdb_7");
-                this.db.add("rid1", new LoginToken("oblivious", "123456"));
-                this.db.add("rid2", new LoginToken("batman", "3276"));
-                this.db.add("rid3", new LoginToken("xontros", "5"));
+                db.save(new Schema<String>(id1, item1));
+                db.update(id1, new Schema(id1, "Operating Systems"));
 
-                boolean test1 = this.db.login("oblivious", "123456");
-                boolean test2 = this.db.login("fasfasif", "123456");
-                boolean test3 = this.db.login("oblivious", "48654");
-                boolean test4 = this.db.login("adgasg", "1eqegq");
-
-                assert_that(test1).is(true);
-                assert_that(test2).is(false);
-                assert_that(test3).is(false);
-                assert_that(test4).is(false);
+                assert_that(db.get_by_id(id1).value()).equals_to("Operating Systems");
             });
         });
     }

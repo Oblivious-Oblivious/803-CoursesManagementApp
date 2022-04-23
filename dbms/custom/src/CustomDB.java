@@ -1,40 +1,93 @@
 package dbms.custom.src;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
-public class CustomDB<T> {
-    private HashMap<String, T> db = null;
+import app.src.entities.Schema;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
+public class CustomDB {
+    private ArrayList<Schema> db = null;
     private String dbname;
 
+    private void read_db_file() {
+        try {
+            this.db = new ArrayList<Schema>();
+            FileInputStream fd = new FileInputStream(this.dbname);
+            ObjectInputStream in = new ObjectInputStream(fd);
+            this.db = (ArrayList)in.readObject();
+            in.close();
+            fd.close();
+        }
+        catch(IOException e) {}
+        catch(ClassNotFoundException e) {}
+    }
+
+    private void write_db_file() {
+        try {
+            FileOutputStream fd = new FileOutputStream(this.dbname);
+            ObjectOutputStream out = new ObjectOutputStream(fd);
+            out.writeObject(this.db);
+            out.close();
+            fd.close();
+        }
+        catch(IOException e) {}
+    }
+
     public CustomDB(String dbname) {
-        this.db = new HashMap<String, T>();
-        this.dbname = "dbms/custom/src/" + dbname;
+        this.db = new ArrayList<Schema>();
+        this.dbname = "dbms/custom/src/" + dbname + ".db";
+        
+        try {
+            FileOutputStream fd = new FileOutputStream(this.dbname);
+            fd.close();
+        }
+        catch(IOException e) {}
     }
 
-    public void add(String id, T item) {
-        this.db.put(id, item);
+    public void save(Schema item) {
+        this.db.add(item);
+        write_db_file();
     }
 
-    public T get(String id) {
-        return this.db.get(id);
+    public Schema get_by_id(String id) {
+        read_db_file();
+
+        for(Schema item : this.db)
+            if(item.get_id().equals(id))
+                return item;
+        return null;
     }
-    public HashMap<String, T> get_all_items() {
+
+    public ArrayList<Schema> get_all_items() {
+        read_db_file();
+
         return this.db;
     }
 
-    public void update(String id, T item) {
-        this.db.replace(id, item);
+    public void update(String id, Schema new_item) {
+        read_db_file();
+
+        for(int i = 0; i < this.db.size(); i++)
+            if(this.db.get(i).get_id().equals(id))
+                this.db.set(i, new_item);
+
+        write_db_file();
     }
 
-    public boolean login(String username, String password) {
-        LoginToken l = new LoginToken(username, password);
+    // public boolean login(String username, String password) {
+    //     RegistrationToken l = new RegistrationToken(username, password);
 
-        for(T item : this.db.values()) {
-            LoginToken current_token = (LoginToken)item;
-            if(l.equals(current_token))
-                return true;
-        }
+    //     for(T item : this.db.values()) {
+    //         RegistrationToken current_token = (RegistrationToken)item;
+    //         if(l.equals(current_token))
+    //             return true;
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 }

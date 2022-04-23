@@ -4,7 +4,7 @@ import jspec.*;
 import java.util.ArrayList;
 
 import app.src.entities.Schema;
-import dbms.custom.src.*;
+import dbms.custom.src.CustomDB;
 
 public class CustomDBTest extends SpecModule {
     public void spec_code() {

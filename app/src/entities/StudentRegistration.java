@@ -1,6 +1,8 @@
 package app.src.entities;
 
-public class StudentRegistration {
+import java.io.Serializable;
+
+public class StudentRegistration implements Serializable {
     public String id;
     public String name;
     public String year_of_registration;

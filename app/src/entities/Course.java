@@ -1,8 +1,9 @@
 package app.src.entities;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Course {
+public class Course implements Serializable {
     public String id;
     public String name;
     public String syllabus;

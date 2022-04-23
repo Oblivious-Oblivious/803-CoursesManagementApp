@@ -19,14 +19,14 @@ WEBINPUT =
 APPOUTPUT = app/src/**/*.class
 APPTESTOUTPUT = app/test/**/*.class app/test/*.class
 DBOUTPUT = dbms/custom/src/*.class
-DBTESTOUTPUT = dbms/custom/test/*.class
+DBTESTOUTPUT = dbms/custom/test/*.class dbms/*.class dbms/custom/src/*.db
 CLIOUTPUT = client/cli/*.class
 WEBOUTPUT =
 
 all: compile
 
 compile:
-	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT)
+	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT) $(DBINPUT)
 	@echo
 
 test: compile
@@ -44,4 +44,4 @@ cli:
 web:
 
 clean:
-	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) dbms/custom/src/*.db
+	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT)

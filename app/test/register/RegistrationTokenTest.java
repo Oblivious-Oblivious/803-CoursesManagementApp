@@ -24,6 +24,16 @@ public class RegistrationTokenTest extends SpecModule {
 
                 assert_that(t1.equals(t2)).is(false);
             });
+
+            it("gets the username", () -> {
+                RegistrationToken token = new RegistrationToken("user", "pass");
+                assert_that(token.get_username()).is("user");
+            });
+            
+            it("gets the password", () -> {
+                RegistrationToken token = new RegistrationToken("user", "pass");
+                assert_that(token.get_password()).is("pass");
+            });
         });
     }
 }

@@ -78,16 +78,4 @@ public class CustomDB {
 
         write_db_file();
     }
-
-    // public boolean login(String username, String password) {
-    //     RegistrationToken l = new RegistrationToken(username, password);
-
-    //     for(T item : this.db.values()) {
-    //         RegistrationToken current_token = (RegistrationToken)item;
-    //         if(l.equals(current_token))
-    //             return true;
-    //     }
-
-    //     return false;
-    // }
 }

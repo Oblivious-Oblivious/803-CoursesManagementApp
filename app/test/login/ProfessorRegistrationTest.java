@@ -1,9 +1,8 @@
-package app.test.register;
+package app.test.login;
 
-import app.src.register.ProfessorRegistration;
-import app.src.register.RegistrationToken;
 import app.src.entities.*;
-
+import app.src.login.ProfessorRegistration;
+import app.src.login.RegistrationToken;
 import dbms.CustomGatewayImplementation;
 
 import jspec.*;
@@ -110,7 +109,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 RegistrationToken current = new RegistrationToken(username, password);
                 this.reg = new ProfessorRegistration(current, accounts_db);
 
-                assert_that(this.reg.save_to_db_as_login_token()).is(true);
+                assert_that(this.reg.register()).is(true);
             });
 
             it("tries to save a token twice but only succeeds the first time", () -> {
@@ -120,9 +119,9 @@ public class ProfessorRegistrationTest extends SpecModule {
                 RegistrationToken current = new RegistrationToken(username, password);
                 this.reg = new ProfessorRegistration(current, accounts_db);
 
-                assert_that(this.reg.save_to_db_as_login_token()).is(true);
-                assert_that(this.reg.save_to_db_as_login_token()).is(false);
-                assert_that(this.reg.save_to_db_as_login_token()).is(false);
+                assert_that(this.reg.register()).is(true);
+                assert_that(this.reg.register()).is(false);
+                assert_that(this.reg.register()).is(false);
             });
 
             it("hashes password using SHA", () -> {

@@ -1,10 +1,11 @@
-package app.src.register;
+package app.src.login;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import app.src.entities.*;
+import app.src.entities.DBMSGateway;
+import app.src.entities.Schema;
 
 public class ProfessorRegistration {
     private DBMSGateway accounts_db;
@@ -18,6 +19,7 @@ public class ProfessorRegistration {
     }
 
     public boolean username_is_safe() {
+        /* TODO need different method of accessing db */
         for(Schema item : this.accounts_db.get_all_items()) {
             RegistrationToken token = (RegistrationToken)item.value();
             if(token.get_username().equals(username))
@@ -53,7 +55,7 @@ public class ProfessorRegistration {
         }
     }
 
-    public boolean save_to_db_as_login_token() {
+    public boolean register() {
         if(!bounds_check())
             return false;
 

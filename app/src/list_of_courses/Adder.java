@@ -12,7 +12,7 @@ public class Adder {
     }
 
     public void add_new_course(Course new_course) {
-        Schema new_schema = new Schema(new_course.id, new_course);
+        Schema<Course> new_schema = new Schema<Course>(new_course.id, new_course);
         this.courses_db.save(new_schema);
     }
 }

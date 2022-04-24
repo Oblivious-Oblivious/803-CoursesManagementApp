@@ -3,6 +3,7 @@ package app.test;
 import jspec.*;
 
 import app.test.entities.*;
+import app.test.list_of_courses.*;
 import app.test.login.*;
 
 public class TestRunner {
@@ -11,6 +12,8 @@ public class TestRunner {
             new CourseTest(),
             new SchemaTest(),
             new StudentRegistrationTest(),
+            new InstructorSorterTest(),
+            new ListOfCoursesBrowserTest(),
             new ProfessorLoginTest(),
             new ProfessorRegistrationTest(),
             new RegistrationTokenTest(),

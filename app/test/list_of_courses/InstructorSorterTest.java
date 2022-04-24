@@ -3,7 +3,7 @@ package app.test.list_of_courses;
 import java.util.ArrayList;
 
 import app.src.list_of_courses.InstructorSorter;
-import app.src.list_of_courses.Sorter;
+import app.src.list_of_courses.CourseSorter;
 
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
@@ -47,12 +47,12 @@ public class InstructorSorterTest extends SpecModule {
 
         describe("InstructorSorter", () -> {
             it("creates sorter object", () -> {
-                Sorter instructor_sorter = new InstructorSorter();
+                CourseSorter instructor_sorter = new InstructorSorter();
                 assert_that(instructor_sorter).isnot(null);
             });
 
             it("sorts the db by instructor name alphabetically", () -> {
-                Sorter instructor_sorter = new InstructorSorter();
+                CourseSorter instructor_sorter = new InstructorSorter();
                 ArrayList<Schema> sorted = instructor_sorter.sort(this.courses);
 
                 Course anastasiadis = new Course("c3", "Operating Systems", "OS class information and syllabus", "Anastasiadis", "2021", "7");

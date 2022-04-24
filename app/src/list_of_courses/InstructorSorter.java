@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import app.src.entities.Schema;
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
+import app.src.entities.Schema;
 
-public class InstructorSorter implements Sorter {
+public class InstructorSorter implements CourseSorter {
     @Override
     public ArrayList<Schema> sort(DBMSGateway db) {
         ArrayList<Schema> sorted = db.get_all_items();

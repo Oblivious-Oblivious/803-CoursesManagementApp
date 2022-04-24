@@ -7,9 +7,9 @@ import app.src.entities.Schema;
 
 public class Browser {
     private DBMSGateway courses;
-    private Sorter sorter;
+    private CourseSorter sorter;
 
-    public Browser(DBMSGateway courses, Sorter sorter) {
+    public Browser(DBMSGateway courses, CourseSorter sorter) {
         this.courses = courses;
         this.sorter = sorter;
     }

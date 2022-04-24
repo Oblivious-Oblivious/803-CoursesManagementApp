@@ -8,6 +8,7 @@ import app.test.login.*;
 
 public class TestRunner {
     public static void main(String args[]) {
+        /* TODO Add boundary interfaces */
         SpecModule modules[] = {
             new CourseTest(),
             new SchemaTest(),

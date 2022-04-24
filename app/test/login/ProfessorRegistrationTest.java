@@ -132,7 +132,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 );
                 String hashed = this.reg.hash_password();
 
-                assert_that(hashed.equals(sha512hash(password))).is(true);
+                assert_that(hashed).equals_to(sha512hash(password));
             });
         });
     }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
 
-public class ListOfCoursesBrowser {
+public class Browser {
     private DBMSGateway courses;
     private Sorter sorter;
 
-    public ListOfCoursesBrowser(DBMSGateway courses, Sorter sorter) {
+    public Browser(DBMSGateway courses, Sorter sorter) {
         this.courses = courses;
         this.sorter = sorter;
     }

@@ -2,7 +2,7 @@ package app.test.list_of_courses;
 
 import java.util.ArrayList;
 
-import app.src.list_of_courses.ListOfCoursesBrowser;
+import app.src.list_of_courses.Browser;
 import app.src.list_of_courses.InstructorSorter;
 
 import app.src.entities.Course;
@@ -13,7 +13,7 @@ import dbms.CustomGatewayImplementation;
 
 import jspec.*;
 
-public class ListOfCoursesBrowserTest extends SpecModule {
+public class BrowserTest extends SpecModule {
     private DBMSGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
@@ -54,14 +54,14 @@ public class ListOfCoursesBrowserTest extends SpecModule {
 
         describe("ListOfCoursesBrowser", () -> {
             it("creates a list browser object", () -> {
-                ListOfCoursesBrowser browser = new ListOfCoursesBrowser(
+                Browser browser = new Browser(
                     this.courses,
                     new InstructorSorter()
                 );
             });
 
             it("returns a list of courses sorted according to the injected sorter", () -> {
-                ListOfCoursesBrowser browser = new ListOfCoursesBrowser(
+                Browser browser = new Browser(
                     this.courses,
                     new InstructorSorter()
                 );

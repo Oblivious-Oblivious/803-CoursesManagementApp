@@ -17,6 +17,7 @@ public class TestRunner {
             new BrowserTest(),
             new InstructorSorterTest(),
             new RemoverTest(),
+            new UpdaterTest(),
             new ProfessorLoginTest(),
             new ProfessorRegistrationTest(),
             new RegistrationTokenTest(),

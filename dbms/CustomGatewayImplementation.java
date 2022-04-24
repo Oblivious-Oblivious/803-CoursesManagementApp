@@ -33,4 +33,9 @@ public class CustomGatewayImplementation implements DBMSGateway {
     public void update(String id, Schema new_item) {
         this.db.update(id, new_item);
     }
+
+    @Override
+    public void delete(String id) {
+        this.db.delete(id);
+    }
 }

@@ -67,6 +67,21 @@ public class CustomDBTest extends SpecModule {
 
                 assert_that(db.get_by_id(id1).value()).equals_to("Operating Systems");
             });
+
+            it("deletes an item by id", () -> {
+                CustomDB db = new CustomDB("testdb_6");
+                String id1 = "Lecture1";
+                String item1 = "Digital Design I";
+                String id2 = "Lecture2";
+                String item2 = "Digital Design II";
+
+                db.save(new Schema<String>(id1, item1));
+                db.save(new Schema<String>(id2, item2));
+                db.delete(id1);
+
+                assert_that(db.get_all_items().size()).is(1);
+                assert_that(db.get_by_id(id2).value()).equals_to("Digital Design II");
+            });
         });
     }
 }

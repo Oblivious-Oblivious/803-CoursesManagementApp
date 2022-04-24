@@ -78,4 +78,14 @@ public class CustomDB {
 
         write_db_file();
     }
+
+    public void delete(String id) {
+        read_db_file();
+
+        for(int i = 0; i < this.db.size(); i++)
+            if(this.db.get(i).get_id().equals(id))
+                this.db.remove(i);
+        
+        write_db_file();
+    }
 }

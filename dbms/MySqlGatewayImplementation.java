@@ -21,4 +21,7 @@ public class MySqlGatewayImplementation implements DBMSGateway {
 
     @Override
     public void update(String id, Schema new_item) {}
+
+    @Override
+    public void delete(String id) {}
 }

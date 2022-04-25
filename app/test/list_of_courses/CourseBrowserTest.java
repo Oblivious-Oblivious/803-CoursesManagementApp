@@ -3,7 +3,7 @@ package app.test.list_of_courses;
 import java.util.ArrayList;
 
 import app.src.list_of_courses.CourseBrowser;
-import app.src.list_of_courses.InstructorSorter;
+import app.src.list_of_courses.InstructorCourseSorter;
 
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
@@ -56,14 +56,14 @@ public class CourseBrowserTest extends SpecModule {
             it("creates a list browser object", () -> {
                 CourseBrowser browser = new CourseBrowser(
                     this.courses,
-                    new InstructorSorter()
+                    new InstructorCourseSorter()
                 );
             });
 
             it("returns a list of courses sorted according to the injected sorter", () -> {
                 CourseBrowser browser = new CourseBrowser(
                     this.courses,
-                    new InstructorSorter()
+                    new InstructorCourseSorter()
                 );
 
                 ArrayList<Schema> list = browser.list_courses();

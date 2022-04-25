@@ -1,16 +1,19 @@
 package app.test.list_of_courses;
 
+import java.util.ArrayList;
+
+import app.src.list_of_courses.CourseBrowser;
+import app.src.list_of_courses.InstructorSorter;
+
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
-
-import app.src.list_of_courses.Remover;
 
 import dbms.CustomGatewayImplementation;
 
 import jspec.*;
 
-public class RemoverTest extends SpecModule {
+public class CourseBrowserTest extends SpecModule {
     private DBMSGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
@@ -49,21 +52,24 @@ public class RemoverTest extends SpecModule {
             this.courses.save(new Schema("c3", anastasiadis));
         });
 
-        describe("Remover object", () -> {
-            it("creates a new Remover object", () -> {
-                Remover rem = new Remover(this.courses);
-                assert_that(rem).isnot(null);
+        describe("ListOfCoursesBrowser", () -> {
+            it("creates a list browser object", () -> {
+                CourseBrowser browser = new CourseBrowser(
+                    this.courses,
+                    new InstructorSorter()
+                );
             });
 
-            it("removes a course from the course list", () -> {
-                Remover rem = new Remover(this.courses);
-                rem.remove_course(this.zarras.id);
+            it("returns a list of courses sorted according to the injected sorter", () -> {
+                CourseBrowser browser = new CourseBrowser(
+                    this.courses,
+                    new InstructorSorter()
+                );
 
-                assert_that(this.courses.get_all_items().size()).equals_to(2);
-
-                Schema first_item = this.courses.get_by_id("c1");
-                Course first_course = (Course)first_item.value();
-                assert_that(first_course.equals(this.kavousianos)).is(true);
+                ArrayList<Schema> list = browser.list_courses();
+                assert_that(((Course)(list.get(0).value())).equals(this.anastasiadis)).is(true);
+                assert_that(((Course)(list.get(1).value())).equals(this.kavousianos)).is(true);
+                assert_that(((Course)(list.get(2).value())).equals(this.zarras)).is(true);
             });
         });
     }

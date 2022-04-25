@@ -2,10 +2,10 @@ package app.src.list_of_courses;
 
 import app.src.entities.DBMSGateway;
 
-public class Remover {
+public class CourseRemover {
     DBMSGateway courses_db = null;
 
-    public Remover(DBMSGateway courses_db) {
+    public CourseRemover(DBMSGateway courses_db) {
         this.courses_db = courses_db;
     }
 

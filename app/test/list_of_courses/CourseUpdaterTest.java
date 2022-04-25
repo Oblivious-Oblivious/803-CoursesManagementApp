@@ -1,6 +1,6 @@
 package app.test.list_of_courses;
 
-import app.src.list_of_courses.Updater;
+import app.src.list_of_courses.CourseUpdater;
 
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
@@ -10,7 +10,7 @@ import dbms.CustomGatewayImplementation;
 
 import jspec.*;
 
-public class UpdaterTest extends SpecModule {
+public class CourseUpdaterTest extends SpecModule {
     private DBMSGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
@@ -51,12 +51,12 @@ public class UpdaterTest extends SpecModule {
             });
 
             it("creates an updater object", () -> {
-                Updater up = new Updater(this.courses, this.zarras.id);
+                CourseUpdater up = new CourseUpdater(this.courses, this.zarras.id);
                 assert_that(up).isnot(null);
             });
 
             it("updates the syllabus of a specific course", () -> {
-                Updater up = new Updater(this.courses, this.zarras.id);
+                CourseUpdater up = new CourseUpdater(this.courses, this.zarras.id);
                 up
                     .edit_syllabus("new syllabus")
                     .update();
@@ -67,7 +67,7 @@ public class UpdaterTest extends SpecModule {
             });
 
             it("updates the name of a specific course", () -> {
-                Updater up = new Updater(this.courses, this.zarras.id);
+                CourseUpdater up = new CourseUpdater(this.courses, this.zarras.id);
                 up
                     .edit_name("new name")
                     .update();
@@ -78,7 +78,7 @@ public class UpdaterTest extends SpecModule {
             });
 
             it("updates all fields using builder pattern", () -> {
-                Updater up = new Updater(this.courses, this.zarras.id);
+                CourseUpdater up = new CourseUpdater(this.courses, this.zarras.id);
                 up
                     .edit_instructor("new instructor")
                     .edit_name("new name")

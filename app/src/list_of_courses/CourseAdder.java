@@ -4,10 +4,10 @@ import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
 
-public class Adder {
+public class CourseAdder {
     DBMSGateway courses_db = null;
     
-    public Adder(DBMSGateway courses_db) {
+    public CourseAdder(DBMSGateway courses_db) {
         this.courses_db = courses_db;
     }
 

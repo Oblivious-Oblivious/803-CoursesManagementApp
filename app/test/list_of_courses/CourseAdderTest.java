@@ -1,19 +1,16 @@
 package app.test.list_of_courses;
 
-import java.util.ArrayList;
-
-import app.src.list_of_courses.Browser;
-import app.src.list_of_courses.InstructorSorter;
-
 import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
+
+import app.src.list_of_courses.CourseAdder;
 
 import dbms.CustomGatewayImplementation;
 
 import jspec.*;
 
-public class BrowserTest extends SpecModule {
+public class CourseAdderTest extends SpecModule {
     private DBMSGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
@@ -52,24 +49,30 @@ public class BrowserTest extends SpecModule {
             this.courses.save(new Schema("c3", anastasiadis));
         });
 
-        describe("ListOfCoursesBrowser", () -> {
-            it("creates a list browser object", () -> {
-                Browser browser = new Browser(
-                    this.courses,
-                    new InstructorSorter()
-                );
+        describe("Adder object", () -> {
+            it("creates a new Adder object", () -> {
+                CourseAdder ad = new CourseAdder(this.courses);
+                assert_that(ad).isnot(null);
             });
 
-            it("returns a list of courses sorted according to the injected sorter", () -> {
-                Browser browser = new Browser(
-                    this.courses,
-                    new InstructorSorter()
+            it("adds a new course in the course list", () -> {
+                CourseAdder ad = new CourseAdder(this.courses);
+                Course mamoulis = new Course(
+                    "c99",
+                    "Introduction to Programming",
+                    "Python introduction, iterations, conditionals, asasignments",
+                    "Mamoulis",
+                    "2021",
+                    "1"
                 );
+                ad.add_new_course(mamoulis);
 
-                ArrayList<Schema> list = browser.list_courses();
-                assert_that(((Course)(list.get(0).value())).equals(this.anastasiadis)).is(true);
-                assert_that(((Course)(list.get(1).value())).equals(this.kavousianos)).is(true);
-                assert_that(((Course)(list.get(2).value())).equals(this.zarras)).is(true);
+                assert_that(this.courses.get_all_items().size()).equals_to(4);
+                                
+                /* TODO Implement the null object pattern */
+                Schema last_item = this.courses.get_by_id("c99");
+                Course last_course = (Course)last_item.value();
+                assert_that(last_course.equals(mamoulis)).is(true);
             });
         });
     }

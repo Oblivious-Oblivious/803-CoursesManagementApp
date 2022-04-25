@@ -4,13 +4,13 @@ import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
 
-import app.src.list_of_courses.Adder;
+import app.src.list_of_courses.CourseRemover;
 
 import dbms.CustomGatewayImplementation;
 
 import jspec.*;
 
-public class AdderTest extends SpecModule {
+public class CourseRemoverTest extends SpecModule {
     private DBMSGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
@@ -49,30 +49,21 @@ public class AdderTest extends SpecModule {
             this.courses.save(new Schema("c3", anastasiadis));
         });
 
-        describe("Adder object", () -> {
-            it("creates a new Adder object", () -> {
-                Adder ad = new Adder(this.courses);
-                assert_that(ad).isnot(null);
+        describe("Remover object", () -> {
+            it("creates a new Remover object", () -> {
+                CourseRemover rem = new CourseRemover(this.courses);
+                assert_that(rem).isnot(null);
             });
 
-            it("adds a new course in the course list", () -> {
-                Adder ad = new Adder(this.courses);
-                Course mamoulis = new Course(
-                    "c99",
-                    "Introduction to Programming",
-                    "Python introduction, iterations, conditionals, asasignments",
-                    "Mamoulis",
-                    "2021",
-                    "1"
-                );
-                ad.add_new_course(mamoulis);
+            it("removes a course from the course list", () -> {
+                CourseRemover rem = new CourseRemover(this.courses);
+                rem.remove_course(this.zarras.id);
 
-                assert_that(this.courses.get_all_items().size()).equals_to(4);
-                                
-                /* TODO Implement the null object pattern */
-                Schema last_item = this.courses.get_by_id("c99");
-                Course last_course = (Course)last_item.value();
-                assert_that(last_course.equals(mamoulis)).is(true);
+                assert_that(this.courses.get_all_items().size()).equals_to(2);
+
+                Schema first_item = this.courses.get_by_id("c1");
+                Course first_course = (Course)first_item.value();
+                assert_that(first_course.equals(this.kavousianos)).is(true);
             });
         });
     }

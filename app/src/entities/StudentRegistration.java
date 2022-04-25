@@ -19,4 +19,8 @@ public class StudentRegistration implements Serializable {
         this.year_of_registration = year_of_registration;
         this.semester = semester;
     }
+
+    public int compare_names(StudentRegistration other) {
+        return this.name.compareTo(other.name);
+    }
 }

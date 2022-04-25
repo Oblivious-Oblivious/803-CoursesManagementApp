@@ -28,6 +28,7 @@ public class Course implements Serializable {
         this.year = year;
         this.semester = semester;
 
+        /* TODO Implement DBSM operations */
         this.students = new ArrayList<StudentRegistration>();
     }
 

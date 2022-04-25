@@ -8,7 +8,7 @@ import app.src.entities.Course;
 import app.src.entities.DBMSGateway;
 import app.src.entities.Schema;
 
-public class InstructorSorter implements CourseSorter {
+public class InstructorCourseSorter implements CourseSorter {
     @Override
     public ArrayList<Schema> sort(DBMSGateway db) {
         ArrayList<Schema> sorted = db.get_all_items();

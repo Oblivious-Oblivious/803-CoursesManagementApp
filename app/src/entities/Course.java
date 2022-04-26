@@ -34,8 +34,28 @@ public class Course implements Serializable {
         this.students_db = new CustomGatewayImplementation("Students");
     }
 
+    public int compare_ids(Course other) {
+        return this.id.compareTo(other.id);
+    }
+
+    public int compare_names(Course other) {
+        return this.name.compareTo(other.name);
+    }
+
+    public int compare_syllabi(Course other) {
+        return this.syllabus.compareTo(other.syllabus);
+    }
+
     public int compare_instructors(Course other) {
         return this.instructor.compareTo(other.instructor);
+    }
+
+    public int compare_years(Course other) {
+        return this.year.compareTo(other.year);
+    }
+
+    public int compare_semesters(Course other) {
+        return this.semester.compareTo(other.semester);
     }
 
     public boolean equals(Course other) {

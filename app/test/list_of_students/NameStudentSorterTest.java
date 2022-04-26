@@ -40,8 +40,8 @@ public class NameStudentSorterTest extends SpecModule {
                 this.course.students_db.save(new Schema("4333", new StudentRegistration(
                     "4333",
                     "Georgiou",
-                    "2018",
-                    "8"
+                    "2019",
+                    "6"
                 )));
             });
 

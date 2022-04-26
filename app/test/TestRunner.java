@@ -4,6 +4,7 @@ import jspec.*;
 
 import app.test.entities.*;
 import app.test.list_of_courses.*;
+import app.test.list_of_students.*;
 import app.test.login.*;
 
 public class TestRunner {
@@ -13,11 +14,19 @@ public class TestRunner {
             new CourseTest(),
             new SchemaTest(),
             new StudentRegistrationTest(),
-            new AdderTest(),
-            new BrowserTest(),
-            new InstructorSorterTest(),
-            new RemoverTest(),
-            new UpdaterTest(),
+
+            new CourseAdderTest(),
+            new CourseBrowserTest(),
+            new CourseRemoverTest(),
+            new CourseUpdaterTest(),
+            new InstructorCourseSorterTest(),
+            
+            new NameStudentSorterTest(),
+            new StudentAdderTest(),
+            new StudentBrowserTest(),
+            new StudentRemoverTest(),
+            new StudentUpdaterTest(),
+
             new ProfessorLoginTest(),
             new ProfessorRegistrationTest(),
             new RegistrationTokenTest(),

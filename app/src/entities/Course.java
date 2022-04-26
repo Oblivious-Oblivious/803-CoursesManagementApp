@@ -1,7 +1,8 @@
 package app.src.entities;
 
-import java.util.ArrayList;
 import java.io.Serializable;
+
+import dbms.CustomGatewayImplementation;
 
 public class Course implements Serializable {
     public String id;
@@ -10,8 +11,9 @@ public class Course implements Serializable {
     public String instructor;
     public String year;
     public String semester;
-
-    public ArrayList<StudentRegistration> students;
+    
+    /* TODO transient specific only to CustomDB */
+    public transient DBMSGateway students_db;
 
     public Course(
         String id,
@@ -28,8 +30,8 @@ public class Course implements Serializable {
         this.year = year;
         this.semester = semester;
 
-        /* TODO Implement DBSM operations */
-        this.students = new ArrayList<StudentRegistration>();
+        /* TODO Figure out way to inject this */
+        this.students_db = new CustomGatewayImplementation("Students");
     }
 
     public int compare_instructors(Course other) {
@@ -42,7 +44,6 @@ public class Course implements Serializable {
             && this.syllabus.equals(other.syllabus)
             && this.instructor.equals(other.instructor)
             && this.year.equals(other.year)
-            && this.semester.equals(other.semester)
-            && this.students.equals(other.students);
+            && this.semester.equals(other.semester);
     }
 }

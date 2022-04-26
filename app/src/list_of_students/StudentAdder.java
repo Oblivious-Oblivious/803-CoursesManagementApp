@@ -1,6 +1,7 @@
 package app.src.list_of_students;
 
 import app.src.entities.Course;
+import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 public class StudentAdder {
@@ -11,6 +12,7 @@ public class StudentAdder {
     }
 
     public void add_new_student(StudentRegistration new_student) {
-        this.course.students.add(new_student);
+        Schema<StudentRegistration> new_schema = new Schema<StudentRegistration>(new_student.id, new_student);
+        this.course.students_db.save(new_schema);
     }
 }

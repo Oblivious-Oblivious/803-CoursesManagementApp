@@ -10,10 +10,6 @@ public class StudentRemover {
     }
 
     public void remove_student(String id) {
-        /* TODO Use DBMS here */
-        // this.course.students.remove(index)
-        for(int i = 0; i < this.course.students.size(); i++)
-            if(this.course.students.get(i).id.equals(id))
-                this.course.students.remove(i);
+        this.course.students_db.delete(id);
     }
 }

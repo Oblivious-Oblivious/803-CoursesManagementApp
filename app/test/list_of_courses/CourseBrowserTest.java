@@ -58,6 +58,8 @@ public class CourseBrowserTest extends SpecModule {
                     this.courses,
                     new InstructorCourseSorter()
                 );
+
+                assert_that(browser).isnot(null);
             });
 
             it("returns a list of courses sorted according to the injected sorter", () -> {

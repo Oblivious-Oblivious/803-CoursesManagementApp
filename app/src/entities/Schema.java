@@ -2,6 +2,8 @@ package app.src.entities;
 
 import java.io.Serializable;
 
+/* TODO Look into implementing a generic schema object that inherits
+    having an id instead of implementing an id-object pair */
 public class Schema<T> implements Serializable {
     private String id;
     private T item;

@@ -65,7 +65,15 @@ public class CourseAdderTest extends SpecModule {
                     "2021",
                     "1"
                 );
-                ad.add_new_course(mamoulis);
+
+                ad.add_new_course(
+                    "c99",
+                    "Introduction to Programming",
+                    "Python introduction, iterations, conditionals, asasignments",
+                    "Mamoulis",
+                    "2021",
+                    "1"
+                );
 
                 assert_that(this.courses.get_all_items().size()).equals_to(4);
                                 

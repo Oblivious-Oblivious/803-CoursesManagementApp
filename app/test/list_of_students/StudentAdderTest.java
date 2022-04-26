@@ -49,13 +49,12 @@ public class StudentAdderTest extends SpecModule {
 
             it("adds a new object to the list of students", () -> {
                 StudentAdder adder = new StudentAdder(this.test);
-                /* TODO Refactor into passing only data in (no object knowledge needed) */
-                adder.add_new_student(new StudentRegistration(
+                adder.add_new_student(
                     "9999",
                     "Test Name",
                     "2014",
                     "17"
-                ));
+                );
 
                 assert_that(this.test.students_db.get_all_items().size()).equals_to(4);
                 assert_that(((StudentRegistration)(this.test.students_db.get_by_id("9999").value())).name).equals_to("Test Name");

@@ -11,8 +11,11 @@ public class StudentAdder {
         this.course = course;
     }
 
-    public void add_new_student(StudentRegistration new_student) {
-        Schema<StudentRegistration> new_schema = new Schema<StudentRegistration>(new_student.id, new_student);
+    public void add_new_student(String id, String name, String year_of_registration, String semester) {
+        Schema<StudentRegistration> new_schema = new Schema<StudentRegistration>(
+            id,
+            new StudentRegistration(id, name, year_of_registration, semester)
+        );
         this.course.students_db.save(new_schema);
     }
 }

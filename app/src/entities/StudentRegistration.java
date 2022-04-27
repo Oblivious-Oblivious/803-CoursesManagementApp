@@ -1,12 +1,14 @@
 package app.src.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class StudentRegistration implements Serializable {
     public String id;
     public String name;
     public String year_of_registration;
     public String semester;
+    public ArrayList<Grades> grades;
 
     public StudentRegistration(
         String id,
@@ -18,6 +20,8 @@ public class StudentRegistration implements Serializable {
         this.name = name;
         this.year_of_registration = year_of_registration;
         this.semester = semester;
+
+        this.grades = new ArrayList<Grades>();
     }
 
     public int compare_ids(StudentRegistration other) {

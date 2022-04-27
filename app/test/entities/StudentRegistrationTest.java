@@ -23,6 +23,10 @@ public class StudentRegistrationTest extends SpecModule {
                 assert_that(r.year_of_registration).equals_to("2021");
                 assert_that(r.semester).equals_to("8");
             });
+
+            it("ensures that a new student registration object has no grades registered", () -> {
+                assert_that(r.grades.size()).equals_to(0);
+            });
         });
     }
 }

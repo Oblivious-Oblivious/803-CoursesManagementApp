@@ -22,20 +22,20 @@ public class GradesAdderTest extends SpecModule {
                 );
 
                 this.reg.grades_db.save(new Schema("4th_sem", new Grades(
-                    8.0,
-                    2.5, /* Failing */
+                    "8.0",
+                    "2.5", /* Failing */
                     "4"
                 )));
 
                 this.reg.grades_db.save(new Schema("6th_sem", new Grades(
-                    8.0,
-                    3.5, /* Failing */
+                    "8.0",
+                    "3.5", /* Failing */
                     "6"
                 )));
 
                 this.reg.grades_db.save(new Schema("8th_sem", new Grades(
-                    8.0,
-                    4.5, /* TODO Add colors for passing/failing students */
+                    "8.0",
+                    "4.5", /* TODO Add colors for passing/failing students */
                     "8"
                 )));
             });
@@ -49,14 +49,14 @@ public class GradesAdderTest extends SpecModule {
                 GradesAdder adder = new GradesAdder(this.reg);
                 adder.add_new_grades(
                     "10th_sem",
-                    8.0,
-                    6.0,
+                    "8.0",
+                    "6.0",
                     "10"
                 );
 
                 assert_that(this.reg.grades_db.get_all_items().size()).equals_to(4);
-                assert_that(((Grades)(this.reg.grades_db.get_by_id("10th_sem").value())).project).equals_to(8.0);
-                assert_that(((Grades)(this.reg.grades_db.get_by_id("10th_sem").value())).exam).equals_to(6.0);
+                assert_that(((Grades)(this.reg.grades_db.get_by_id("10th_sem").value())).project).equals_to("8.0");
+                assert_that(((Grades)(this.reg.grades_db.get_by_id("10th_sem").value())).exam).equals_to("6.0");
             });
         });
     }

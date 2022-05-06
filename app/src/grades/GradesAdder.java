@@ -11,7 +11,7 @@ public class GradesAdder {
         this.reg = reg;
     }
 
-    public void add_new_grades(String id, double project, double exam, String semester) {
+    public void add_new_grades(String id, String project, String exam, String semester) {
         Schema<Grades> new_schema = new Schema<Grades>(
             id,
             new Grades(project, exam, semester)

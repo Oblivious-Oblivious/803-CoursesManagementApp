@@ -1,14 +1,17 @@
 package app.src.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
+import dbms.DynamicListGatewayImplementation;
 
 public class StudentRegistration implements Serializable {
     public String id;
     public String name;
     public String year_of_registration;
     public String semester;
-    public ArrayList<Grades> grades;
+
+    /* TODO prob every persistence gateway should be transient */
+    public transient DBMSGateway grades_db;
 
     public StudentRegistration(
         String id,
@@ -21,7 +24,8 @@ public class StudentRegistration implements Serializable {
         this.year_of_registration = year_of_registration;
         this.semester = semester;
 
-        this.grades = new ArrayList<Grades>();
+        /* TODO Try to inject this */
+        this.grades_db = new DynamicListGatewayImplementation();
     }
 
     public int compare_ids(StudentRegistration other) {

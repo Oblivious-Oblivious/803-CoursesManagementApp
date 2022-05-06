@@ -25,7 +25,7 @@ public class StudentRegistrationTest extends SpecModule {
             });
 
             it("ensures that a new student registration object has no grades registered", () -> {
-                assert_that(r.grades.size()).equals_to(0);
+                assert_that(r.grades_db.get_all_items().size()).equals_to(0);
             });
         });
     }

@@ -11,15 +11,15 @@ LIBS = -classpath ./libs/jspec.jar:.
 
 APPINPUT = app/src/**/*.java
 APPTESTINPUT = app/test/**/*.java app/test/TestRunner.java
-DBINPUT = dbms/custom/src/*.java
-DBTESTINPUT = dbms/custom/test/*.java
+DBINPUT = dbms/**/src/*.java
+DBTESTINPUT = dbms/**/test/*.java
 CLIINPUT = client/cli/*.java
 WEBINPUT =
 
 APPOUTPUT = app/src/**/*.class
 APPTESTOUTPUT = app/test/**/*.class app/test/*.class
-DBOUTPUT = dbms/custom/src/*.class
-DBTESTOUTPUT = dbms/custom/test/*.class dbms/*.class dbms/custom/src/*.db
+DBOUTPUT = dbms/**/src/*.class
+DBTESTOUTPUT = dbms/**/test/*.class dbms/*.class dbms/custom/src/*.db
 CLIOUTPUT = client/cli/*.class
 WEBOUTPUT =
 
@@ -36,6 +36,7 @@ test: compile
 testdb:
 	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(DBINPUT) $(DBTESTINPUT)
 	$(JAVA) $(LIBS) dbms/custom/test/TestRunner
+	$(JAVA) $(LIBS) dbms/dynamiclist/test/TestRunner
 
 cli:
 	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)

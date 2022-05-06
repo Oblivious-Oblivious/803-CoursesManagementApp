@@ -82,7 +82,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 
                 RegistrationToken current = new RegistrationToken(username, password);
 
-                DBMSGateway accounts_db = new CustomGatewayImplementation("Accounts");
+                PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 accounts_db.save(reg_token1);
                 accounts_db.save(reg_token2);
                 accounts_db.save(reg_token3);
@@ -95,7 +95,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 String username = "Oblivious";
                 String password = "one two three four";
 
-                DBMSGateway accounts_db = new CustomGatewayImplementation("Accounts");
+                PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 RegistrationToken current = new RegistrationToken(username, password);
                 this.reg = new ProfessorRegistration(current, accounts_db);
 
@@ -105,7 +105,7 @@ public class ProfessorRegistrationTest extends SpecModule {
             it("saves a registration token in the db as a login token", () -> {
                 String username = "Oblivious";
                 String password = "one two three four";
-                DBMSGateway accounts_db = new CustomGatewayImplementation("Accounts");
+                PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 RegistrationToken current = new RegistrationToken(username, password);
                 this.reg = new ProfessorRegistration(current, accounts_db);
 
@@ -115,7 +115,7 @@ public class ProfessorRegistrationTest extends SpecModule {
             it("tries to save a token twice but only succeeds the first time", () -> {
                 String username = "Oblivious";
                 String password = "one two three four";
-                DBMSGateway accounts_db = new CustomGatewayImplementation("Accounts");
+                PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 RegistrationToken current = new RegistrationToken(username, password);
                 this.reg = new ProfessorRegistration(current, accounts_db);
 

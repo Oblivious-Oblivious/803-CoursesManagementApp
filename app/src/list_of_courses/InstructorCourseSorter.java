@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import app.src.entities.Course;
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 public class InstructorCourseSorter implements CourseSorter {
     @Override
-    public ArrayList<Schema> sort(DBMSGateway db) {
+    public ArrayList<Schema> sort(PersistenceGateway db) {
         ArrayList<Schema> sorted = db.get_all_items();
 
         Collections.sort(sorted, new Comparator<Schema>() {

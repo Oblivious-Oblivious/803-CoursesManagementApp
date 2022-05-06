@@ -2,10 +2,10 @@ package dbms;
 
 import java.util.ArrayList;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
-public class MySqlGatewayImplementation implements DBMSGateway {
+public class MySqlGatewayImplementation implements PersistenceGateway {
     @Override
     public void save(Schema item) {}
 

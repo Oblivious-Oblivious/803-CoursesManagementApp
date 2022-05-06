@@ -2,12 +2,12 @@ package dbms;
 
 import java.util.ArrayList;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 import dbms.custom.src.CustomDB;
 
-public class CustomGatewayImplementation implements DBMSGateway {
+public class CustomGatewayImplementation implements PersistenceGateway {
     private CustomDB db;
 
     public CustomGatewayImplementation(String dbname) {

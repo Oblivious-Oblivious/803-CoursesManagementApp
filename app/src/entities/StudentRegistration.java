@@ -11,7 +11,7 @@ public class StudentRegistration implements Serializable {
     public String semester;
 
     /* TODO prob every persistence gateway should be transient */
-    public transient DBMSGateway grades_db;
+    public transient PersistenceGateway grades_db;
 
     public StudentRegistration(
         String id,

@@ -1,13 +1,13 @@
 package app.src.list_of_courses;
 
 import app.src.entities.Course;
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 public class CourseAdder {
-    DBMSGateway courses_db = null;
+    PersistenceGateway courses_db = null;
     
-    public CourseAdder(DBMSGateway courses_db) {
+    public CourseAdder(PersistenceGateway courses_db) {
         this.courses_db = courses_db;
     }
 

@@ -1,11 +1,11 @@
 package app.src.list_of_courses;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 
 public class CourseRemover {
-    DBMSGateway courses_db = null;
+    PersistenceGateway courses_db = null;
 
-    public CourseRemover(DBMSGateway courses_db) {
+    public CourseRemover(PersistenceGateway courses_db) {
         this.courses_db = courses_db;
     }
 

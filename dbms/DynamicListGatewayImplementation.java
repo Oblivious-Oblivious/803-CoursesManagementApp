@@ -2,12 +2,12 @@ package dbms;
 
 import java.util.ArrayList;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 import dbms.dynamiclist.src.DynamicList;
 
-public class DynamicListGatewayImplementation implements DBMSGateway {
+public class DynamicListGatewayImplementation implements PersistenceGateway {
     private DynamicList list;
 
     public DynamicListGatewayImplementation() {

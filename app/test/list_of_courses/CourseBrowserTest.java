@@ -6,7 +6,7 @@ import app.src.list_of_courses.CourseBrowser;
 import app.src.list_of_courses.InstructorCourseSorter;
 
 import app.src.entities.Course;
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 import dbms.CustomGatewayImplementation;
@@ -14,7 +14,7 @@ import dbms.CustomGatewayImplementation;
 import jspec.*;
 
 public class CourseBrowserTest extends SpecModule {
-    private DBMSGateway courses;
+    private PersistenceGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
     private Course zarras;

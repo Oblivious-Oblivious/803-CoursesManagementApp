@@ -1,13 +1,13 @@
 package app.src.login;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 public class ProfessorLogin {
     private RegistrationToken token = null;
-    private DBMSGateway accounts_db = null;
+    private PersistenceGateway accounts_db = null;
 
-    public ProfessorLogin(RegistrationToken token, DBMSGateway accounts_db) {
+    public ProfessorLogin(RegistrationToken token, PersistenceGateway accounts_db) {
         this.token = token;
         this.accounts_db = accounts_db;
     }

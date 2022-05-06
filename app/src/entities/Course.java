@@ -13,7 +13,7 @@ public class Course implements Serializable {
     public String semester;
     
     /* TODO transient specific only to CustomDB */
-    public transient DBMSGateway students_db;
+    public transient PersistenceGateway students_db;
 
     public Course(
         String id,

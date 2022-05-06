@@ -6,7 +6,7 @@ import app.src.list_of_courses.CourseSorter;
 import app.src.list_of_courses.SyllabusCourseSorter;
 
 import app.src.entities.Course;
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 import dbms.CustomGatewayImplementation;
@@ -14,7 +14,7 @@ import dbms.CustomGatewayImplementation;
 import jspec.*;
 
 public class SyllabusCourseSorterTest extends SpecModule {
-    private DBMSGateway courses;
+    private PersistenceGateway courses;
 
     public void spec_code() {
         before_each(() -> {

@@ -4,15 +4,15 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 public class ProfessorRegistration {
-    private DBMSGateway accounts_db;
+    private PersistenceGateway accounts_db;
     private String username;
     private String password;
 
-    public ProfessorRegistration(RegistrationToken reg, DBMSGateway accounts_db) {
+    public ProfessorRegistration(RegistrationToken reg, PersistenceGateway accounts_db) {
         this.accounts_db = accounts_db;
         this.username = reg.get_username();
         this.password = reg.get_password();

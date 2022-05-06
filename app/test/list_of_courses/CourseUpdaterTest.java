@@ -3,7 +3,7 @@ package app.test.list_of_courses;
 import app.src.list_of_courses.CourseUpdater;
 
 import app.src.entities.Course;
-import app.src.entities.DBMSGateway;
+import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
 import dbms.CustomGatewayImplementation;
@@ -11,7 +11,7 @@ import dbms.CustomGatewayImplementation;
 import jspec.*;
 
 public class CourseUpdaterTest extends SpecModule {
-    private DBMSGateway courses;
+    private PersistenceGateway courses;
     private Course anastasiadis;
     private Course kavousianos;
     private Course zarras;

@@ -1,11 +1,11 @@
-package dbms;
+package persistence;
 
 import java.util.ArrayList;
 
 import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
-public class MySqlGatewayImplementation implements PersistenceGateway {
+public class SqliteGatewayImplementation implements PersistenceGateway {
     @Override
     public void save(Schema item) {}
 

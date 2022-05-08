@@ -1,4 +1,4 @@
-package dbms.dynamiclist.src;
+package persistence.dynamiclist.src;
 
 import java.util.ArrayList;
 

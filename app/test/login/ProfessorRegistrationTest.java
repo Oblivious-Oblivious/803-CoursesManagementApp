@@ -3,7 +3,7 @@ package app.test.login;
 import app.src.entities.*;
 import app.src.login.ProfessorRegistration;
 import app.src.login.RegistrationToken;
-import dbms.CustomGatewayImplementation;
+import persistence.CustomGatewayImplementation;
 
 import jspec.*;
 

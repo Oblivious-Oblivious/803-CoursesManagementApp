@@ -2,7 +2,7 @@ package app.src.entities;
 
 import java.io.Serializable;
 
-import dbms.CustomGatewayImplementation;
+import persistence.CustomGatewayImplementation;
 
 public class Course implements Serializable {
     public String id;

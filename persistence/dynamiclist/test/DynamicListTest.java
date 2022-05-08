@@ -1,10 +1,11 @@
-package dbms.dynamiclist.test;
+package persistence.dynamiclist.test;
 
 import jspec.*;
+import persistence.dynamiclist.src.DynamicList;
+
 import java.util.ArrayList;
 
 import app.src.entities.Schema;
-import dbms.dynamiclist.src.DynamicList;
 
 public class DynamicListTest extends SpecModule {
     private DynamicList list = null;

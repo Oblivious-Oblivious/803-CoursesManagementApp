@@ -2,7 +2,8 @@ package app.src.entities;
 
 import java.io.Serializable;
 
-import dbms.DynamicListGatewayImplementation;
+import persistence.CustomGatewayImplementation;
+import persistence.DynamicListGatewayImplementation;
 
 public class StudentRegistration implements Serializable {
     public String id;

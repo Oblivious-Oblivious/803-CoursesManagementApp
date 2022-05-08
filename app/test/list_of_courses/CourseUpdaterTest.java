@@ -6,7 +6,7 @@ import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
 import app.src.entities.Schema;
 
-import dbms.CustomGatewayImplementation;
+import persistence.CustomGatewayImplementation;
 
 import jspec.*;
 

@@ -1,4 +1,4 @@
-package dbms.custom.src;
+package persistence.custom.src;
 
 import java.util.ArrayList;
 
@@ -40,7 +40,7 @@ public class CustomDB {
 
     public CustomDB(String dbname) {
         this.db = new ArrayList<Schema>();
-        this.dbname = "dbms/custom/src/" + dbname + ".db";
+        this.dbname = "persistence/custom/src/" + dbname + ".db";
         
         try {
             FileOutputStream fd = new FileOutputStream(this.dbname);

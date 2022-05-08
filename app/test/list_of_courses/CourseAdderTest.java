@@ -6,7 +6,7 @@ import app.src.entities.Schema;
 
 import app.src.list_of_courses.CourseAdder;
 
-import dbms.CustomGatewayImplementation;
+import persistence.CustomGatewayImplementation;
 
 import jspec.*;
 

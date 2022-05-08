@@ -1,10 +1,11 @@
-package dbms.custom.test;
+package persistence.custom.test;
 
 import jspec.*;
+import persistence.custom.src.CustomDB;
+
 import java.util.ArrayList;
 
 import app.src.entities.Schema;
-import dbms.custom.src.CustomDB;
 
 public class CustomDBTest extends SpecModule {
     public void spec_code() {

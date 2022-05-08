@@ -4,7 +4,7 @@ import app.src.login.ProfessorLogin;
 import app.src.login.RegistrationToken;
 import app.src.entities.Schema;
 
-import dbms.CustomGatewayImplementation;
+import persistence.CustomGatewayImplementation;
 
 import jspec.*;
 

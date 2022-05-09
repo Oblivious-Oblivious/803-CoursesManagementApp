@@ -13,7 +13,7 @@ public class ProfessorLoginTest extends SpecModule {
         describe("professor login object", () -> {
             it("creates a new login object with a registration token and an accounts db", () -> {
                 ProfessorLogin log = new ProfessorLogin(
-                    new RegistrationToken("Oblivious", "one two three four"),
+                    new RegistrationToken("id", "Oblivious", "one two three four"),
                     new CustomGatewayImplementation("Accounts")
                 );
 
@@ -22,12 +22,12 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("sucessfully logins with an existing registration token", () -> {
                 CustomGatewayImplementation accounts_db = new CustomGatewayImplementation("Accounts");
-                accounts_db.save(new Schema("acc1", new RegistrationToken("Oblivious", "one two three four")));
-                accounts_db.save(new Schema("acc2", new RegistrationToken("Second", "one two three four")));
-                accounts_db.save(new Schema("acc3", new RegistrationToken("Third", "one two three four")));
+                accounts_db.save(new Schema("acc1", new RegistrationToken("id1", "Oblivious", "one two three four")));
+                accounts_db.save(new Schema("acc2", new RegistrationToken("id2", "Second", "one two three four")));
+                accounts_db.save(new Schema("acc3", new RegistrationToken("id3", "Third", "one two three four")));
 
                 ProfessorLogin log = new ProfessorLogin(
-                    new RegistrationToken("Oblivious", "one two three four"),
+                    new RegistrationToken("id", "Oblivious", "one two three four"),
                     accounts_db
                 );
 
@@ -36,7 +36,7 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("fails to login with a non existing registration token", () -> {
                 ProfessorLogin log = new ProfessorLogin(
-                    new RegistrationToken("Oblivious", "one two three four"),
+                    new RegistrationToken("id", "Oblivious", "one two three four"),
                     new CustomGatewayImplementation("Accounts")
                 );
 

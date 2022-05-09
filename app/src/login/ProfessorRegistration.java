@@ -14,15 +14,15 @@ public class ProfessorRegistration {
 
     public ProfessorRegistration(RegistrationToken reg, PersistenceGateway accounts_db) {
         this.accounts_db = accounts_db;
-        this.username = reg.get_username();
-        this.password = reg.get_password();
+        this.username = reg.username;
+        this.password = reg.password;
     }
 
     public boolean username_is_safe() {
         /* TODO need different method of accessing db */
         for(Schema item : this.accounts_db.get_all_items()) {
             RegistrationToken token = (RegistrationToken)item.value();
-            if(token.get_username().equals(username))
+            if(token.username.equals(username))
                 return false;
         }
 
@@ -60,6 +60,7 @@ public class ProfessorRegistration {
             return false;
 
         RegistrationToken token = new RegistrationToken(
+            "id",
             this.username,
             hash_password()
         );

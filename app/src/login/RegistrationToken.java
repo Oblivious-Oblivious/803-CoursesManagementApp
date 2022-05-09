@@ -1,22 +1,26 @@
 package app.src.login;
+// TODO Inlcude jar files in gitignore
+import java.util.ArrayList;
 
 import java.io.Serializable;
+import app.src.entities.Course;
+import app.src.entities.PersistenceGateway;
+import persistence.CustomGatewayImplementation;
 
 public class RegistrationToken implements Serializable {
+    public String id;
     public String username;
     public String password;
 
-    public RegistrationToken(String username, String password) {
+    /* TODO inject this */
+    public PersistenceGateway courses_db = new CustomGatewayImplementation("Accounts");
+
+    public RegistrationToken(String id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.password = password;
     }
 
-    public String get_username() {
-        return this.username;
-    }
-
-    public String get_password() {
-        return this.password;
     }
 
     public boolean equals(RegistrationToken other) {

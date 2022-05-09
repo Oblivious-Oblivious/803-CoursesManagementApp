@@ -12,7 +12,7 @@ public class StudentUpdater {
     public StudentUpdater(Course course, String id) {
         this.course = course;
         this.id = id;
-        this.current_edited_student = (StudentRegistration)this.course.students_db.get_by_id(id).value();
+        this.current_edited_student = (StudentRegistration)this.course.get_students_db().get_by_id(id).value();
     }
 
     public StudentUpdater edit_id(String new_id) {
@@ -36,7 +36,7 @@ public class StudentUpdater {
     }
 
     public void update() {
-        this.course.students_db.update(
+        this.course.get_students_db().update(
             this.id,
             new Schema<StudentRegistration>(this.id, this.current_edited_student)
         );

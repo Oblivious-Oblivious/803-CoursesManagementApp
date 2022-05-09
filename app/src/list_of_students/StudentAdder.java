@@ -16,6 +16,6 @@ public class StudentAdder {
             id,
             new StudentRegistration(id, name, year_of_registration, semester)
         );
-        this.course.students_db.save(new_schema);
+        this.course.get_students_db().save(new_schema);
     }
 }

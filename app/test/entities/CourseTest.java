@@ -29,7 +29,7 @@ public class CourseTest extends SpecModule {
             });
 
             it("ensures that a new course object has no students registered", () -> {
-                assert_that(c.students_db.get_all_items().size()).equals_to(0);
+                assert_that(c.get_students_db().get_all_items().size()).equals_to(0);
             });
         });
     }

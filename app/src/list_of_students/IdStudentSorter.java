@@ -11,7 +11,7 @@ import app.src.entities.StudentRegistration;
 public class IdStudentSorter implements StudentSorter {
     @Override
     public ArrayList<Schema> sort(Course course) {
-        ArrayList<Schema> sorted = course.students_db.get_all_items();
+        ArrayList<Schema> sorted = course.get_students_db().get_all_items();
         
         Collections.sort(sorted, new Comparator<Schema>() {
             public int compare(Schema s1, Schema s2) {

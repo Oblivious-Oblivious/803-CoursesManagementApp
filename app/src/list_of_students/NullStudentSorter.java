@@ -8,6 +8,6 @@ import app.src.entities.Schema;
 public class NullStudentSorter implements StudentSorter {
     @Override
     public ArrayList<Schema> sort(Course course) {
-        return course.students_db.get_all_items();
+        return course.get_students_db().get_all_items();
     }
 }

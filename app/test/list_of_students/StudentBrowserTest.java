@@ -25,19 +25,19 @@ public class StudentBrowserTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.students_db.save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
                     "4147",
                     "Papapostolou",
                     "2017",
                     "10"
                 )));
-                this.test.students_db.save(new Schema("4392", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
                     "4392",
                     "Koureas",
                     "2018",
                     "8"
                 )));
-                this.test.students_db.save(new Schema("4333", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
                     "4333",
                     "Georgiou",
                     "2018",

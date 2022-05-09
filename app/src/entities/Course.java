@@ -13,7 +13,7 @@ public class Course implements Serializable {
     public String semester;
     
     /* TODO transient specific only to CustomDB */
-    public transient PersistenceGateway students_db;
+    private transient PersistenceGateway students_db;
 
     public Course(
         String id,
@@ -31,7 +31,13 @@ public class Course implements Serializable {
         this.semester = semester;
 
         /* TODO Figure out way to inject this */
-        this.students_db = new CustomGatewayImplementation("Students");
+        this.students_db = new CustomGatewayImplementation(this.id + "_enrolled_students");
+    }
+
+    public PersistenceGateway get_students_db() {
+        if(this.students_db == null)
+            this.students_db = new CustomGatewayImplementation(this.id + "_enrolled_students");
+        return this.students_db;
     }
 
     public int compare_ids(Course other) {

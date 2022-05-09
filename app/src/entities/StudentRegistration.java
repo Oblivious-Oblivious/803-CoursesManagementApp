@@ -11,7 +11,7 @@ public class StudentRegistration implements Serializable {
     public String semester;
 
     /* TODO prob every persistence gateway should be transient */
-    public transient PersistenceGateway grades_db;
+    private transient PersistenceGateway grades_db;
 
     public StudentRegistration(
         String id,
@@ -26,6 +26,12 @@ public class StudentRegistration implements Serializable {
 
         /* TODO Try to inject this */
         this.grades_db = new CustomGatewayImplementation("Grades_" + this.id);
+    }
+
+    public PersistenceGateway get_grades_db() {
+        if(this.grades_db == null)
+            this.grades_db = new CustomGatewayImplementation("Grades_" + this.id);
+        return this.grades_db;
     }
 
     public int compare_ids(StudentRegistration other) {

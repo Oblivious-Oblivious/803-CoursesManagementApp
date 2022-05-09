@@ -10,6 +10,6 @@ public class StudentRemover {
     }
 
     public void remove_student(String id) {
-        this.course.students_db.delete(id);
+        this.course.get_students_db().delete(id);
     }
 }

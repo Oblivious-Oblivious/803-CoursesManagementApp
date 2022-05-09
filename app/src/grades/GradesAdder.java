@@ -17,6 +17,6 @@ public class GradesAdder {
             new Grades(project, exam, semester)
         );
 
-        this.reg.grades_db.save(new_schema);
+        this.reg.get_grades_db().save(new_schema);
     }
 }

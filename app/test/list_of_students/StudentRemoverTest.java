@@ -22,19 +22,19 @@ public class StudentRemoverTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.students_db.save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
                     "4147",
                     "Ath Pap",
                     "2017",
                     "10"
                 )));
-                this.test.students_db.save(new Schema("4392", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
                     "4392",
                     "Ath Kour",
                     "2018",
                     "8"
                 )));
-                this.test.students_db.save(new Schema("4333", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
                     "4333",
                     "Kon Geo",
                     "2018",
@@ -51,9 +51,9 @@ public class StudentRemoverTest extends SpecModule {
                 StudentRemover remover = new StudentRemover(this.test);
                 remover.remove_student("4392");
 
-                assert_that(this.test.students_db.get_all_items().size()).equals_to(2);
-                assert_that(((StudentRegistration)(this.test.students_db.get_all_items().get(0).value())).id).equals_to("4147");
-                assert_that(((StudentRegistration)(this.test.students_db.get_all_items().get(1).value())).id).equals_to("4333");
+                assert_that(this.test.get_students_db().get_all_items().size()).equals_to(2);
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(0).value())).id).equals_to("4147");
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(1).value())).id).equals_to("4333");
             });
         });
     }

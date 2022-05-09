@@ -25,19 +25,19 @@ public class YearOfRegistrationStudentSorterTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.course.students_db.save(new Schema("4147", new StudentRegistration(
+                this.course.get_students_db().save(new Schema("4147", new StudentRegistration(
                     "4147",
                     "Papapostolou",
                     "2017",
                     "10"
                 )));
-                this.course.students_db.save(new Schema("4392", new StudentRegistration(
+                this.course.get_students_db().save(new Schema("4392", new StudentRegistration(
                     "4392",
                     "Koureas",
                     "2018",
                     "8"
                 )));
-                this.course.students_db.save(new Schema("4333", new StudentRegistration(
+                this.course.get_students_db().save(new Schema("4333", new StudentRegistration(
                     "4333",
                     "Georgiou",
                     "2019",

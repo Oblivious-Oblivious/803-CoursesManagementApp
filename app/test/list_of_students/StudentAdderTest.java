@@ -22,19 +22,19 @@ public class StudentAdderTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.students_db.save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
                     "4147",
                     "Ath Pap",
                     "2017",
                     "10"
                 )));
-                this.test.students_db.save(new Schema("4392", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
                     "4392",
                     "Ath Kour",
                     "2018",
                     "8"
                 )));
-                this.test.students_db.save(new Schema("4333", new StudentRegistration(
+                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
                     "4333",
                     "Kon Geo",
                     "2018",
@@ -56,8 +56,8 @@ public class StudentAdderTest extends SpecModule {
                     "17"
                 );
 
-                assert_that(this.test.students_db.get_all_items().size()).equals_to(4);
-                assert_that(((StudentRegistration)(this.test.students_db.get_by_id("9999").value())).name).equals_to("Test Name");
+                assert_that(this.test.get_students_db().get_all_items().size()).equals_to(4);
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_by_id("9999").value())).name).equals_to("Test Name");
             });
         });
     }

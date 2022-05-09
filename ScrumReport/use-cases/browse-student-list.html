@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Press Back Button</title>
+    <title>Browse Student List</title>
 </head>
 <body>
     <div class="container">
-        <div class="name">Press Back Button</div>
+        <div class="name">Browse Student List</div>
 
         <div class="data">
             <i>Data:</i>
@@ -28,15 +28,23 @@
         <div class="preconditions">
             <i>Pre Conditions</i>
             <ol>
-                <li>Professor should have issued the 'Add' command</li>
+                <li>Should be viewing a particular course item</li>
             </ol>
         </div>
 
         <div class="primary-course">
             <i>Main Flow:</i>
             <ol>
-                <li>Professor issues "Go Back" command</li>
-                <li>System issues 'Press Browse Button' use case without state changes</li>
+                <li>Professor issues "Browse Students" command</li>
+                <li>System selects students list from the DBMS</li>
+                <li>User is presented with a list-view of all students enrolled in the course</li>
+            </ol>
+        </div>
+
+        <div class="exception-course">
+            <i>No Students Error (2)</i>
+            <ol>
+                <li>System delivers error message 'Oops, no students enrolled yet' to user.</li>
             </ol>
         </div>
 

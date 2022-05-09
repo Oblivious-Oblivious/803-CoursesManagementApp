@@ -3,7 +3,6 @@ package app.src.entities;
 import java.io.Serializable;
 
 import persistence.CustomGatewayImplementation;
-import persistence.DynamicListGatewayImplementation;
 
 public class StudentRegistration implements Serializable {
     public String id;
@@ -26,7 +25,7 @@ public class StudentRegistration implements Serializable {
         this.semester = semester;
 
         /* TODO Try to inject this */
-        this.grades_db = new DynamicListGatewayImplementation();
+        this.grades_db = new CustomGatewayImplementation("Grades_" + this.id);
     }
 
     public int compare_ids(StudentRegistration other) {

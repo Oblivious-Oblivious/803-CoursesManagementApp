@@ -1,7 +1,7 @@
 package persistence.custom.src;
 
 import java.util.ArrayList;
-
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -43,8 +43,11 @@ public class CustomDB {
         this.dbname = "persistence/custom/src/" + dbname + ".db";
         
         try {
-            FileOutputStream fd = new FileOutputStream(this.dbname);
-            fd.close();
+            File file = new File(this.dbname);
+            if(!file.exists()) {
+                FileOutputStream fd = new FileOutputStream(this.dbname);
+                fd.close();
+            }
         }
         catch(IOException e) {}
     }

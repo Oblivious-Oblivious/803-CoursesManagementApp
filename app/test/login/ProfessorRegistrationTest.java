@@ -2,7 +2,6 @@ package app.test.login;
 
 import app.src.entities.*;
 import app.src.login.ProfessorRegistration;
-import app.src.login.RegistrationToken;
 import persistence.CustomGatewayImplementation;
 
 import jspec.*;
@@ -76,9 +75,9 @@ public class ProfessorRegistrationTest extends SpecModule {
                 String username = "Oblivious";
                 String password = "one two three four";
                 
-                Schema reg_token1 = new Schema("reg1", new RegistrationToken("id1", "Oblivious", "asg sagwqg qg gqqw"));
-                Schema reg_token2 = new Schema("reg2", new RegistrationToken("id2", "Another", "asg sagwqg qg gqqw"));
-                Schema reg_token3 = new Schema("reg3", new RegistrationToken("id3", "Test", "asg sagwqg qg gqqw"));
+                RegistrationToken reg_token1 = new RegistrationToken("reg1", "Oblivious", "asg sagwqg qg gqqw");
+                RegistrationToken reg_token2 = new RegistrationToken("reg2", "Another", "asg sagwqg qg gqqw");
+                RegistrationToken reg_token3 = new RegistrationToken("reg3", "Test", "asg sagwqg qg gqqw");
                 
                 RegistrationToken current = new RegistrationToken("id", username, password);
 

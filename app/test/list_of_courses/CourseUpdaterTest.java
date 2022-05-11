@@ -4,7 +4,6 @@ import app.src.list_of_courses.CourseUpdater;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
 
 import persistence.CustomGatewayImplementation;
 
@@ -45,9 +44,9 @@ public class CourseUpdaterTest extends SpecModule {
                 );
     
                 this.courses = new CustomGatewayImplementation("Courses");
-                this.courses.save(new Schema("c1", kavousianos));
-                this.courses.save(new Schema("c2", zarras));
-                this.courses.save(new Schema("c3", anastasiadis));
+                this.courses.save(kavousianos);
+                this.courses.save(zarras);
+                this.courses.save(anastasiadis);
             });
 
             it("creates an updater object", () -> {
@@ -61,8 +60,7 @@ public class CourseUpdaterTest extends SpecModule {
                     .edit_syllabus("new syllabus")
                     .update();
                 
-                Schema item = this.courses.get_by_id(this.zarras.id);
-                Course updated_course = (Course)item.value();
+                Course updated_course = (Course)this.courses.get_by_id(this.zarras.id);
                 assert_that(updated_course.syllabus).equals_to("new syllabus");
             });
 
@@ -72,8 +70,7 @@ public class CourseUpdaterTest extends SpecModule {
                     .edit_name("new name")
                     .update();
                 
-                Schema item = this.courses.get_by_id(this.zarras.id);
-                Course updated_course = (Course)item.value();
+                Course updated_course = (Course)this.courses.get_by_id(this.zarras.id);
                 assert_that(updated_course.name).equals_to("new name");
             });
 
@@ -87,8 +84,7 @@ public class CourseUpdaterTest extends SpecModule {
                     .edit_year("new year")
                     .update();
                 
-                Schema item = this.courses.get_by_id(this.zarras.id);
-                Course updated_course = (Course)item.value();
+                Course updated_course = (Course)this.courses.get_by_id(this.zarras.id);
                 assert_that(updated_course.name).equals_to("new name");
                 assert_that(updated_course.syllabus).equals_to("new syllabus");
                 assert_that(updated_course.instructor).equals_to("new instructor");

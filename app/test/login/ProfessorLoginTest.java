@@ -1,8 +1,7 @@
 package app.test.login;
 
 import app.src.login.ProfessorLogin;
-import app.src.login.RegistrationToken;
-import app.src.entities.Schema;
+import app.src.entities.RegistrationToken;
 
 import persistence.CustomGatewayImplementation;
 
@@ -22,9 +21,9 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("sucessfully logins with an existing registration token", () -> {
                 CustomGatewayImplementation accounts_db = new CustomGatewayImplementation("Accounts");
-                accounts_db.save(new Schema("acc1", new RegistrationToken("id1", "Oblivious", "one two three four")));
-                accounts_db.save(new Schema("acc2", new RegistrationToken("id2", "Second", "one two three four")));
-                accounts_db.save(new Schema("acc3", new RegistrationToken("id3", "Third", "one two three four")));
+                accounts_db.save(new RegistrationToken("id1", "Oblivious", "one two three four"));
+                accounts_db.save(new RegistrationToken("id2", "Second", "one two three four"));
+                accounts_db.save(new RegistrationToken("id3", "Third", "one two three four"));
 
                 ProfessorLogin log = new ProfessorLogin(
                     new RegistrationToken("id", "Oblivious", "one two three four"),

@@ -7,7 +7,7 @@ import app.src.list_of_courses.InstructorCourseSorter;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 
 import persistence.CustomGatewayImplementation;
 
@@ -47,9 +47,9 @@ public class CourseBrowserTest extends SpecModule {
             );
 
             this.courses = new CustomGatewayImplementation("Courses");
-            this.courses.save(new Schema("c1", kavousianos));
-            this.courses.save(new Schema("c2", zarras));
-            this.courses.save(new Schema("c3", anastasiadis));
+            this.courses.save(kavousianos);
+            this.courses.save(zarras);
+            this.courses.save(anastasiadis);
         });
 
         describe("ListOfCoursesBrowser", () -> {
@@ -68,10 +68,10 @@ public class CourseBrowserTest extends SpecModule {
                     new InstructorCourseSorter()
                 );
 
-                ArrayList<Schema> list = browser.list_courses();
-                assert_that(((Course)(list.get(0).value())).equals(this.anastasiadis)).is(true);
-                assert_that(((Course)(list.get(1).value())).equals(this.kavousianos)).is(true);
-                assert_that(((Course)(list.get(2).value())).equals(this.zarras)).is(true);
+                ArrayList<Identifiable> list = browser.list_courses();
+                assert_that(((Course)(list.get(0))).equals(this.anastasiadis)).is(true);
+                assert_that(((Course)(list.get(1))).equals(this.kavousianos)).is(true);
+                assert_that(((Course)(list.get(2))).equals(this.zarras)).is(true);
             });
         });
     }

@@ -2,7 +2,6 @@ package app.src.list_of_courses;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
 
 public class CourseAdder {
     PersistenceGateway courses_db = null;
@@ -12,10 +11,13 @@ public class CourseAdder {
     }
 
     public void add_new_course(String id, String name, String syllabus, String instructor, String year, String semester) {
-        Schema<Course> new_schema = new Schema<Course>(
+        this.courses_db.save(new Course(
             id,
-            new Course(id, name, syllabus, instructor, year, semester)
-        );
-        this.courses_db.save(new_schema);
+            name,
+            syllabus,
+            instructor,
+            year,
+            semester
+        ));
     }
 }

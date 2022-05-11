@@ -1,7 +1,6 @@
 package app.test.list_of_students;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 import app.src.list_of_students.StudentRemover;
@@ -22,24 +21,24 @@ public class StudentRemoverTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new StudentRegistration(
                     "4147",
                     "Ath Pap",
                     "2017",
                     "10"
-                )));
-                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4392",
                     "Ath Kour",
                     "2018",
                     "8"
-                )));
-                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4333",
                     "Kon Geo",
                     "2018",
                     "8"
-                )));
+                ));
             });
 
             it("creates a student remover object", () -> {
@@ -52,8 +51,8 @@ public class StudentRemoverTest extends SpecModule {
                 remover.remove_student("4392");
 
                 assert_that(this.test.get_students_db().get_all_items().size()).equals_to(2);
-                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(0).value())).id).equals_to("4147");
-                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(1).value())).id).equals_to("4333");
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(0))).id).equals_to("4147");
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(1))).id).equals_to("4333");
             });
         });
     }

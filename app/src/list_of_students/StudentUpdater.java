@@ -1,7 +1,6 @@
 package app.src.list_of_students;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 public class StudentUpdater {
@@ -12,7 +11,7 @@ public class StudentUpdater {
     public StudentUpdater(Course course, String id) {
         this.course = course;
         this.id = id;
-        this.current_edited_student = (StudentRegistration)this.course.get_students_db().get_by_id(id).value();
+        this.current_edited_student = (StudentRegistration)this.course.get_students_db().get_by_id(id);
     }
 
     public StudentUpdater edit_id(String new_id) {
@@ -38,7 +37,7 @@ public class StudentUpdater {
     public void update() {
         this.course.get_students_db().update(
             this.id,
-            new Schema<StudentRegistration>(this.id, this.current_edited_student)
+            this.current_edited_student
         );
     }
 }

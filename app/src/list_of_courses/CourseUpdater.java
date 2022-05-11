@@ -2,7 +2,6 @@ package app.src.list_of_courses;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
 
 public class CourseUpdater {
     private PersistenceGateway courses_db;
@@ -12,7 +11,7 @@ public class CourseUpdater {
     public CourseUpdater(PersistenceGateway courses_db, String id) {
         this.courses_db = courses_db;
         this.id = id;
-        this.current_edited_course = (Course)this.courses_db.get_by_id(id).value();
+        this.current_edited_course = (Course)this.courses_db.get_by_id(id);
     }
 
     public CourseUpdater edit_name(String new_name) {
@@ -43,7 +42,7 @@ public class CourseUpdater {
     public void update() {
         this.courses_db.update(
             this.id,
-            new Schema<Course>(this.id, this.current_edited_course)
+            this.current_edited_course
         );
     }
 }

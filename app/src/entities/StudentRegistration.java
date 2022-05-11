@@ -1,11 +1,8 @@
 package app.src.entities;
 
-import java.io.Serializable;
-
 import persistence.CustomGatewayImplementation;
 
-public class StudentRegistration implements Serializable {
-    public String id;
+public class StudentRegistration extends Identifiable {
     public String name;
     public String year_of_registration;
     public String semester;
@@ -49,5 +46,18 @@ public class StudentRegistration implements Serializable {
     public int compare_semesters(StudentRegistration other) {
         /* TODO String version has a logic error */
         return Integer.compare(Integer.parseInt(this.semester), Integer.parseInt(other.semester));
+    }
+
+    @Override
+    public boolean is(Identifiable o) {
+        StudentRegistration other=  (StudentRegistration)o;
+        return this.name.equals(other.name)
+            && this.year_of_registration.equals(other.year_of_registration)
+            && this.semester.equals(other.semester);
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }

@@ -1,7 +1,6 @@
 package app.test.grades;
 
 import app.src.entities.Grades;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 import app.src.grades.GradesAdder;
@@ -21,23 +20,26 @@ public class GradesAdderTest extends SpecModule {
                     "10"
                 );
 
-                this.reg.get_grades_db().save(new Schema("4th_sem", new Grades(
+                this.reg.get_grades_db().save(new Grades(
+                    "4th_sem",
                     "8.0",
                     "2.5", /* Failing */
                     "4"
-                )));
+                ));
 
-                this.reg.get_grades_db().save(new Schema("6th_sem", new Grades(
+                this.reg.get_grades_db().save(new Grades(
+                    "6th_sem",
                     "8.0",
                     "3.5", /* Failing */
                     "6"
-                )));
+                ));
 
-                this.reg.get_grades_db().save(new Schema("8th_sem", new Grades(
+                this.reg.get_grades_db().save(new Grades(
+                    "8th_sem",
                     "8.0",
                     "4.5", /* TODO Add colors for passing/failing students */
                     "8"
-                )));
+                ));
             });
 
             it("creates a grades adder object", () -> {
@@ -55,8 +57,8 @@ public class GradesAdderTest extends SpecModule {
                 );
 
                 assert_that(this.reg.get_grades_db().get_all_items().size()).equals_to(4);
-                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem").value())).project).equals_to("8.0");
-                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem").value())).exam).equals_to("6.0");
+                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).project).equals_to("8.0");
+                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).exam).equals_to("6.0");
             });
         });
     }

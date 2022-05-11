@@ -3,7 +3,7 @@ package persistence;
 import java.util.ArrayList;
 
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 import persistence.custom.src.CustomDB;
 
 public class CustomGatewayImplementation implements PersistenceGateway {
@@ -14,22 +14,22 @@ public class CustomGatewayImplementation implements PersistenceGateway {
     }
 
     @Override
-    public void save(Schema item) {
+    public void save(Identifiable item) {
         this.db.save(item);
     }
 
     @Override
-    public Schema get_by_id(String id) {
+    public Identifiable get_by_id(String id) {
         return this.db.get_by_id(id);
     }
 
     @Override
-    public ArrayList<Schema> get_all_items() {
+    public ArrayList<Identifiable> get_all_items() {
         return this.db.get_all_items();
     }
 
     @Override
-    public void update(String id, Schema new_item) {
+    public void update(String id, Identifiable new_item) {
         this.db.update(id, new_item);
     }
 

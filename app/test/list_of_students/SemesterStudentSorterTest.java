@@ -3,7 +3,7 @@ package app.test.list_of_students;
 import java.util.ArrayList;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 import app.src.entities.StudentRegistration;
 
 import app.src.list_of_students.StudentSorter;
@@ -25,24 +25,24 @@ public class SemesterStudentSorterTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.course.get_students_db().save(new Schema("4147", new StudentRegistration(
+                this.course.get_students_db().save(new StudentRegistration(
                     "4147",
                     "Papapostolou",
                     "2017",
                     "10"
-                )));
-                this.course.get_students_db().save(new Schema("4392", new StudentRegistration(
+                ));
+                this.course.get_students_db().save(new StudentRegistration(
                     "4392",
                     "Koureas",
                     "2018",
                     "8"
-                )));
-                this.course.get_students_db().save(new Schema("4333", new StudentRegistration(
+                ));
+                this.course.get_students_db().save(new StudentRegistration(
                     "4333",
                     "Georgiou",
                     "2019",
                     "6"
-                )));
+                ));
             });
 
             it("creates a sorter object", () -> {
@@ -52,11 +52,11 @@ public class SemesterStudentSorterTest extends SpecModule {
 
             it("sorts the student list by semester", () -> {
                 StudentSorter semester_sorter = new SemesterStudentSorter();
-                ArrayList<Schema> sorted = semester_sorter.sort(this.course);
+                ArrayList<Identifiable> sorted = semester_sorter.sort(this.course);
 
-                assert_that(((StudentRegistration)(sorted.get(0).value())).name).equals_to("Georgiou");
-                assert_that(((StudentRegistration)(sorted.get(1).value())).name).equals_to("Koureas");
-                assert_that(((StudentRegistration)(sorted.get(2).value())).name).equals_to("Papapostolou");
+                assert_that(((StudentRegistration)(sorted.get(0))).name).equals_to("Georgiou");
+                assert_that(((StudentRegistration)(sorted.get(1))).name).equals_to("Koureas");
+                assert_that(((StudentRegistration)(sorted.get(2))).name).equals_to("Papapostolou");
             });
         });
     }

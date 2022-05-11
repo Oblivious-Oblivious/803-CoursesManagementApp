@@ -1,11 +1,8 @@
-package app.src.login;
+package app.src.entities;
 
-import java.io.Serializable;
-import app.src.entities.PersistenceGateway;
 import persistence.CustomGatewayImplementation;
 
-public class RegistrationToken implements Serializable {
-    public String id;
+public class RegistrationToken extends Identifiable {
     public String username;
     public String password;
 
@@ -28,5 +25,17 @@ public class RegistrationToken implements Serializable {
     public boolean equals(RegistrationToken other) {
         return this.username.equals(other.username)
             && this.password.equals(other.password);
+    }
+
+    @Override
+    public boolean is(Identifiable o) {
+        RegistrationToken other = (RegistrationToken)o;
+        return this.username.equals(other.username)
+            && this.password.equals(other.password);
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }

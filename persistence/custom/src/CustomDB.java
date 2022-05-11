@@ -2,24 +2,24 @@ package persistence.custom.src;
 
 import java.util.ArrayList;
 
-import app.src.entities.Schema;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 
+import app.src.entities.Identifiable;
+
 public class CustomDB {
-    private ArrayList<Schema> db = null;
+    private ArrayList<Identifiable> db = null;
     private String dbname;
 
     private void read_db_file() {
-        this.db = new ArrayList<Schema>();
+        this.db = new ArrayList<Identifiable>();
         try {
             FileInputStream fd = new FileInputStream(this.dbname);
             ObjectInputStream in = new ObjectInputStream(fd);
-            this.db = (ArrayList)in.readObject();
+            this.db = (ArrayList<Identifiable>)in.readObject();
             in.close();
             fd.close();
         }
@@ -39,7 +39,7 @@ public class CustomDB {
     }
 
     public CustomDB(String dbname) {
-        this.db = new ArrayList<Schema>();
+        this.db = new ArrayList<Identifiable>();
         this.dbname = "persistence/custom/src/" + dbname + ".db";
         
         try {
@@ -49,31 +49,31 @@ public class CustomDB {
         catch(IOException e) {}
     }
 
-    public void save(Schema item) {
+    public void save(Identifiable item) {
         this.db.add(item);
         write_db_file();
     }
 
-    public Schema get_by_id(String id) {
+    public Identifiable get_by_id(String id) {
         read_db_file();
 
-        for(Schema item : this.db)
-            if(item.get_id().equals(id))
+        for(Identifiable item : this.db)
+            if(item.id.equals(id))
                 return item;
         return null;
     }
 
-    public ArrayList<Schema> get_all_items() {
+    public ArrayList<Identifiable> get_all_items() {
         read_db_file();
 
         return this.db;
     }
 
-    public void update(String id, Schema new_item) {
+    public void update(String id, Identifiable new_item) {
         read_db_file();
 
         for(int i = 0; i < this.db.size(); i++)
-            if(this.db.get(i).get_id().equals(id))
+            if(this.db.get(i).id.equals(id))
                 this.db.set(i, new_item);
 
         write_db_file();
@@ -83,7 +83,7 @@ public class CustomDB {
         read_db_file();
 
         for(int i = 0; i < this.db.size(); i++)
-            if(this.db.get(i).get_id().equals(id))
+            if(this.db.get(i).id.equals(id))
                 this.db.remove(i);
         
         write_db_file();

@@ -1,7 +1,6 @@
 package app.test.list_of_students;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 import app.src.list_of_students.StudentAdder;
@@ -22,24 +21,24 @@ public class StudentAdderTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new StudentRegistration(
                     "4147",
                     "Ath Pap",
                     "2017",
                     "10"
-                )));
-                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4392",
                     "Ath Kour",
                     "2018",
                     "8"
-                )));
-                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4333",
                     "Kon Geo",
                     "2018",
                     "8"
-                )));
+                ));
             });
 
             it("creates a student adder object", () -> {
@@ -57,7 +56,7 @@ public class StudentAdderTest extends SpecModule {
                 );
 
                 assert_that(this.test.get_students_db().get_all_items().size()).equals_to(4);
-                assert_that(((StudentRegistration)(this.test.get_students_db().get_by_id("9999").value())).name).equals_to("Test Name");
+                assert_that(((StudentRegistration)(this.test.get_students_db().get_by_id("9999"))).name).equals_to("Test Name");
             });
         });
     }

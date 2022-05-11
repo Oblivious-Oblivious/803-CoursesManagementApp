@@ -5,18 +5,18 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 import app.src.entities.StudentRegistration;
 
 public class IdStudentSorter implements StudentSorter {
     @Override
-    public ArrayList<Schema> sort(Course course) {
-        ArrayList<Schema> sorted = course.get_students_db().get_all_items();
+    public ArrayList<Identifiable> sort(Course course) {
+        ArrayList<Identifiable> sorted = course.get_students_db().get_all_items();
         
-        Collections.sort(sorted, new Comparator<Schema>() {
-            public int compare(Schema s1, Schema s2) {
-                StudentRegistration r1 = (StudentRegistration)s1.value();
-                StudentRegistration r2 = (StudentRegistration)s2.value();
+        Collections.sort(sorted, new Comparator<Identifiable>() {
+            public int compare(Identifiable s1, Identifiable s2) {
+                StudentRegistration r1 = (StudentRegistration)s1;
+                StudentRegistration r2 = (StudentRegistration)s2;
                 return r1.compare_ids(r2);
             }
         });

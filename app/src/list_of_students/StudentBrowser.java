@@ -3,7 +3,7 @@ package app.src.list_of_students;
 import java.util.ArrayList;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 
 public class StudentBrowser {
     private Course course;
@@ -14,7 +14,7 @@ public class StudentBrowser {
         this.sorter = sorter;
     }
 
-    public ArrayList<Schema> list_students() {
+    public ArrayList<Identifiable> list_students() {
         return this.sorter.sort(this.course);
     }
 }

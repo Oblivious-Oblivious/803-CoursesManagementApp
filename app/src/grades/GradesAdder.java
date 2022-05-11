@@ -1,7 +1,6 @@
 package app.src.grades;
 
 import app.src.entities.Grades;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 public class GradesAdder {
@@ -12,11 +11,11 @@ public class GradesAdder {
     }
 
     public void add_new_grades(String id, String project, String exam, String semester) {
-        Schema<Grades> new_schema = new Schema<Grades>(
+        this.reg.get_grades_db().save(new Grades(
             id,
-            new Grades(project, exam, semester)
-        );
-
-        this.reg.get_grades_db().save(new_schema);
+            project,
+            exam,
+            semester
+        ));
     }
 }

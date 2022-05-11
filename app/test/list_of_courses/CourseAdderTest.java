@@ -2,7 +2,6 @@ package app.test.list_of_courses;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
 
 import app.src.list_of_courses.CourseAdder;
 
@@ -44,9 +43,9 @@ public class CourseAdderTest extends SpecModule {
             );
 
             this.courses = new CustomGatewayImplementation("Courses");
-            this.courses.save(new Schema("c1", kavousianos));
-            this.courses.save(new Schema("c2", zarras));
-            this.courses.save(new Schema("c3", anastasiadis));
+            this.courses.save(kavousianos);
+            this.courses.save(zarras);
+            this.courses.save(anastasiadis);
         });
 
         describe("Adder object", () -> {
@@ -76,10 +75,9 @@ public class CourseAdderTest extends SpecModule {
                 );
 
                 assert_that(this.courses.get_all_items().size()).equals_to(4);
-                                
+
                 /* TODO Implement the null object pattern */
-                Schema last_item = this.courses.get_by_id("c99");
-                Course last_course = (Course)last_item.value();
+                Course last_course = (Course)this.courses.get_by_id("c99");
                 assert_that(last_course.equals(mamoulis)).is(true);
             });
         });

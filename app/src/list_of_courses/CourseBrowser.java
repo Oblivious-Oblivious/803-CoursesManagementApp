@@ -3,7 +3,7 @@ package app.src.list_of_courses;
 import java.util.ArrayList;
 
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 
 public class CourseBrowser {
     private PersistenceGateway courses;
@@ -14,7 +14,7 @@ public class CourseBrowser {
         this.sorter = sorter;
     }
 
-    public ArrayList<Schema> list_courses() {
+    public ArrayList<Identifiable> list_courses() {
         return sorter.sort(courses);
     }
 }

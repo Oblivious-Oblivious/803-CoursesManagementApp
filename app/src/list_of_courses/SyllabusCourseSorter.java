@@ -6,17 +6,17 @@ import java.util.Comparator;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.Identifiable;
 
 public class SyllabusCourseSorter implements CourseSorter {
     @Override
-    public ArrayList<Schema> sort(PersistenceGateway db) {
-        ArrayList<Schema> sorted = db.get_all_items();
+    public ArrayList<Identifiable> sort(PersistenceGateway db) {
+        ArrayList<Identifiable> sorted = db.get_all_items();
 
-        Collections.sort(sorted, new Comparator<Schema>() {
-            public int compare(Schema s1, Schema s2) {
-                Course c1 = (Course)s1.value();
-                Course c2 = (Course)s2.value();
+        Collections.sort(sorted, new Comparator<Identifiable>() {
+            public int compare(Identifiable s1, Identifiable s2) {
+                Course c1 = (Course)s1;
+                Course c2 = (Course)s2;
                 return c1.compare_syllabi(c2);
             }
         });

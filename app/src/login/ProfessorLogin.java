@@ -1,7 +1,8 @@
 package app.src.login;
 
+import app.src.entities.Identifiable;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.RegistrationToken;
 
 public class ProfessorLogin {
     private RegistrationToken token = null;
@@ -14,8 +15,8 @@ public class ProfessorLogin {
 
     public boolean login() {
         /* TODO Change method of searching to search by name or id */
-        for(Schema acc : this.accounts_db.get_all_items())
-            if(((RegistrationToken)acc.value()).equals(this.token))
+        for(Identifiable acc : this.accounts_db.get_all_items())
+            if(((RegistrationToken)acc).equals(this.token))
                 return true;
 
         return false;

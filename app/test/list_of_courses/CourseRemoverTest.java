@@ -2,7 +2,6 @@ package app.test.list_of_courses;
 
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
 
 import app.src.list_of_courses.CourseRemover;
 
@@ -44,9 +43,9 @@ public class CourseRemoverTest extends SpecModule {
             );
 
             this.courses = new CustomGatewayImplementation("Courses");
-            this.courses.save(new Schema("c1", kavousianos));
-            this.courses.save(new Schema("c2", zarras));
-            this.courses.save(new Schema("c3", anastasiadis));
+            this.courses.save(kavousianos);
+            this.courses.save(zarras);
+            this.courses.save(anastasiadis);
         });
 
         describe("Remover object", () -> {
@@ -61,8 +60,7 @@ public class CourseRemoverTest extends SpecModule {
 
                 assert_that(this.courses.get_all_items().size()).equals_to(2);
 
-                Schema first_item = this.courses.get_by_id("c1");
-                Course first_course = (Course)first_item.value();
+                Course first_course = (Course)this.courses.get_by_id("c1");
                 assert_that(first_course.equals(this.kavousianos)).is(true);
             });
         });

@@ -1,7 +1,6 @@
 package app.test.list_of_students;
 
 import app.src.entities.Course;
-import app.src.entities.Schema;
 import app.src.entities.StudentRegistration;
 
 import app.src.list_of_students.StudentUpdater;
@@ -22,24 +21,24 @@ public class StudentUpdaterTest extends SpecModule {
                     "year", "semester"
                 );
 
-                this.test.get_students_db().save(new Schema("4147", new StudentRegistration(
+                this.test.get_students_db().save(new StudentRegistration(
                     "4147",
                     "Ath Pap",
                     "2017",
                     "10"
-                )));
-                this.test.get_students_db().save(new Schema("4392", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4392",
                     "Ath Kour",
                     "2018",
                     "8"
-                )));
-                this.test.get_students_db().save(new Schema("4333", new StudentRegistration(
+                ));
+                this.test.get_students_db().save(new StudentRegistration(
                     "4333",
                     "Kon Geo",
                     "2018",
                     "8"
-                )));
+                ));
             });
 
             it("creates a student updater object", () -> {
@@ -53,7 +52,7 @@ public class StudentUpdaterTest extends SpecModule {
                     .edit_id("4242")
                     .update();
                 
-                StudentRegistration st = (StudentRegistration)this.test.get_students_db().get_all_items().get(0).value();
+                StudentRegistration st = (StudentRegistration)this.test.get_students_db().get_all_items().get(0);
                 assert_that(st.id).equals_to("4242");
             });
 
@@ -66,7 +65,7 @@ public class StudentUpdaterTest extends SpecModule {
                     .edit_semester("new semester")
                     .update();
                 
-                StudentRegistration st = (StudentRegistration)this.test.get_students_db().get_all_items().get(2).value();
+                StudentRegistration st = (StudentRegistration)this.test.get_students_db().get_all_items().get(2);
                 assert_that(st.id).equals_to("new id");
                 assert_that(st.name).equals_to("new name");
                 assert_that(st.year_of_registration).equals_to("new year");

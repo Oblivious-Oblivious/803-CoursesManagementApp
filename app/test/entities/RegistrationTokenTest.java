@@ -1,6 +1,6 @@
-package app.test.login;
+package app.test.entities;
 
-import app.src.login.RegistrationToken;
+import app.src.entities.RegistrationToken;
 import jspec.*;
 
 public class RegistrationTokenTest extends SpecModule {

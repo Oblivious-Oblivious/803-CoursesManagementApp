@@ -4,8 +4,9 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import app.src.entities.Identifiable;
 import app.src.entities.PersistenceGateway;
-import app.src.entities.Schema;
+import app.src.entities.RegistrationToken;
 
 public class ProfessorRegistration {
     private PersistenceGateway accounts_db;
@@ -20,8 +21,8 @@ public class ProfessorRegistration {
 
     public boolean username_is_safe() {
         /* TODO need different method of accessing db */
-        for(Schema item : this.accounts_db.get_all_items()) {
-            RegistrationToken token = (RegistrationToken)item.value();
+        for(Identifiable item : this.accounts_db.get_all_items()) {
+            RegistrationToken token = (RegistrationToken)item;
             if(token.username.equals(username))
                 return false;
         }
@@ -65,8 +66,7 @@ public class ProfessorRegistration {
             hash_password()
         );
 
-        Schema<RegistrationToken> item = new Schema<RegistrationToken>(this.username, token);
-        this.accounts_db.save(item);
+        this.accounts_db.save(token);
 
         return true;
     }

@@ -15,8 +15,8 @@ public class CustomDB {
     private String dbname;
 
     private void read_db_file() {
+        this.db = new ArrayList<Schema>();
         try {
-            this.db = new ArrayList<Schema>();
             FileInputStream fd = new FileInputStream(this.dbname);
             ObjectInputStream in = new ObjectInputStream(fd);
             this.db = (ArrayList)in.readObject();

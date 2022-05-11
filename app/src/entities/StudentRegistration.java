@@ -47,6 +47,7 @@ public class StudentRegistration implements Serializable {
     }
 
     public int compare_semesters(StudentRegistration other) {
-        return this.semester.compareTo(other.semester);
+        /* TODO String version has a logic error */
+        return Integer.compare(Integer.parseInt(this.semester), Integer.parseInt(other.semester));
     }
 }

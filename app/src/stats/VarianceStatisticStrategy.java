@@ -17,4 +17,9 @@ public class VarianceStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_variance();
     }
+
+    @Override
+    public String toString() {
+        return "Variance";
+    }
 }

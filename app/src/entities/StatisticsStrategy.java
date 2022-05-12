@@ -21,4 +21,5 @@ public abstract class StatisticsStrategy {
     }
 
     public abstract double calculate();
+    public abstract String toString();
 }

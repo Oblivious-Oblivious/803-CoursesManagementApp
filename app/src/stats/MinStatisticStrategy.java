@@ -17,4 +17,9 @@ public class MinStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_min();
     }
+
+    @Override
+    public String toString() {
+        return "Min";
+    }
 }

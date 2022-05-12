@@ -17,4 +17,9 @@ public class MaxStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_max();
     }
+
+    @Override
+    public String toString() {
+        return "Max";
+    }
 }

@@ -17,4 +17,9 @@ public class StandardDeviationStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_standard_deviation();
     }
+
+    @Override
+    public String toString() {
+        return "Standard Deviation";
+    }
 }

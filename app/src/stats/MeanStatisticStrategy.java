@@ -17,4 +17,9 @@ public class MeanStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_mean();
     }
+
+    @Override
+    public String toString() {
+        return "Mean";
+    }
 }

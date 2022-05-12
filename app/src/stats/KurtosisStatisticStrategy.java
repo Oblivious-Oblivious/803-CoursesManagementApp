@@ -17,4 +17,9 @@ public class KurtosisStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_kurtosis();
     }
+
+    @Override
+    public String toString() {
+        return "Kurtosis";
+    }
 }

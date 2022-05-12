@@ -17,4 +17,9 @@ public class SkewnessStatisticStrategy extends StatisticsStrategy {
     public double calculate() {
         return this.ds.get_skewness();
     }
+
+    @Override
+    public String toString() {
+        return "Skewness";
+    }
 }

@@ -7,7 +7,7 @@ FLAGS =
 WARNINGS =
 REMOVE_WARN =
 HEADERS =
-LIBS = -classpath ./libs/jspec.jar:.
+LIBS = -classpath ./libs/jspec.jar:./libs/commons-math3-3.6.1.jar:.
 
 APPINPUT = app/src/**/*.java
 APPTESTINPUT = app/test/**/*.java app/test/TestRunner.java

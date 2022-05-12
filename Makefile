@@ -11,22 +11,24 @@ LIBS = -classpath ./libs/jspec.jar:./libs/commons-math3-3.6.1.jar:.
 
 APPINPUT = app/src/**/*.java
 APPTESTINPUT = app/test/**/*.java app/test/TestRunner.java
-DBINPUT = persistence/**/src/*.java persistence/TestRunner.java
+DBINPUT = persistence/**/src/*.java persistence/*.java
 DBTESTINPUT = persistence/**/test/*.java
+STATSINPUT = statistics/**/*.java statistics/*.java
 CLIINPUT = client/cli/*.java
 WEBINPUT =
 
 APPOUTPUT = app/src/**/*.class
 APPTESTOUTPUT = app/test/**/*.class app/test/*.class
-DBOUTPUT = persistence/**/src/*.class persistence/TestRunner.class
+DBOUTPUT = persistence/**/src/*.class persistence/*.class
 DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/custom/src/*.db
+STATSOUTPUT = statistics/**/*.class statistics/*.class
 CLIOUTPUT = client/cli/*.class
 WEBOUTPUT =
 
 all: compile
 
 compile:
-	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT) $(DBINPUT)
+	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT) $(DBINPUT) $(STATSINPUT)
 	@echo
 
 test: compile
@@ -44,4 +46,4 @@ cli:
 web:
 
 clean:
-	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT)
+	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT)

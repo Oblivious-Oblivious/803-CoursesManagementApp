@@ -3,17 +3,23 @@ package app.test;
 import jspec.*;
 
 import app.test.entities.*;
+import app.test.grades.*;
 import app.test.list_of_courses.*;
 import app.test.list_of_students.*;
 import app.test.login.*;
+import app.test.stats.*;
 
 public class TestRunner {
     public static void main(String args[]) {
         /* TODO Add boundary interfaces */
         SpecModule modules[] = {
             new CourseTest(),
-            new SchemaTest(),
+            new GradesTest(),
+            new RegistrationTokenTest(),
             new StudentRegistrationTest(),
+
+            new GradesAdderTest(),
+            new GradesCalculatorTest(),
 
             new CourseAdderTest(),
             new CourseBrowserTest(),
@@ -39,7 +45,17 @@ public class TestRunner {
 
             new ProfessorLoginTest(),
             new ProfessorRegistrationTest(),
-            new RegistrationTokenTest(),
+
+            new KurtosisStatisticStrategyTest(),
+            new MaxStatisticStrategyTest(),
+            new MeanStatisticStrategyTest(),
+            new MedianStatisticStrategyTest(),
+            new MinStatisticStrategyTest(),
+            new PercentileStatisticStrategyTest(),
+            new SkewnessStatisticStrategyTest(),
+            new StandardDeviationStatisticStrategyTest(),
+            new VarianceStatisticStrategyTest(),
+            new StatisticsCalculatorTest(),
         };
         Spec s = new Spec(modules);
         s.run_spec_suite("all");

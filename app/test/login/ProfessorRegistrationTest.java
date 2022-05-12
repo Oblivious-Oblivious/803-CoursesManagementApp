@@ -91,7 +91,7 @@ public class ProfessorRegistrationTest extends SpecModule {
             });
 
             it("succeeds if username is unique", () -> {
-                String username = "Oblivious";
+                String username = "some unique username";
                 String password = "one two three four";
 
                 PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
@@ -102,7 +102,7 @@ public class ProfessorRegistrationTest extends SpecModule {
             });
 
             it("saves a registration token in the db as a login token", () -> {
-                String username = "Oblivious";
+                String username = "another unique username";
                 String password = "one two three four";
                 PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 RegistrationToken current = new RegistrationToken("id", username, password);
@@ -112,7 +112,7 @@ public class ProfessorRegistrationTest extends SpecModule {
             });
 
             it("tries to save a token twice but only succeeds the first time", () -> {
-                String username = "Oblivious";
+                String username = "3rd unique username";
                 String password = "one two three four";
                 PersistenceGateway accounts_db = new CustomGatewayImplementation("Accounts");
                 RegistrationToken current = new RegistrationToken("id", username, password);

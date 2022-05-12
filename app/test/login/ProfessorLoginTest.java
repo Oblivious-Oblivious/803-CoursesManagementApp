@@ -35,7 +35,7 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("fails to login with a non existing registration token", () -> {
                 ProfessorLogin log = new ProfessorLogin(
-                    new RegistrationToken("id", "Oblivious", "one two three four"),
+                    new RegistrationToken("id", "OOOOblivious", "one two three four"),
                     new CustomGatewayImplementation("Accounts")
                 );
 

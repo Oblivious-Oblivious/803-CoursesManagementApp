@@ -68,6 +68,10 @@ public class MedianStatisticStrategyTest extends SpecModule {
                 MedianStatisticStrategy median = new MedianStatisticStrategy(this.course);
                 assert_that(median.calculate()).equals_to(8.317);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

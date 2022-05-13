@@ -27,6 +27,10 @@ public class StudentRegistrationTest extends SpecModule {
             it("ensures that a new student registration object has no grades registered", () -> {
                 assert_that(r.get_grades_db().get_all_items().size()).equals_to(0);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

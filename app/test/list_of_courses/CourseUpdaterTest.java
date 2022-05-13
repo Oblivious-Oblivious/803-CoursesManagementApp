@@ -17,7 +17,7 @@ public class CourseUpdaterTest extends SpecModule {
 
     public void spec_code() {
         describe("Updater object", () -> {
-            before_each(() -> {
+            before(() -> {
                 this.kavousianos = new Course(
                     "c1",
                     "Digital Design I",
@@ -90,6 +90,10 @@ public class CourseUpdaterTest extends SpecModule {
                 assert_that(updated_course.instructor).equals_to("new instructor");
                 assert_that(updated_course.year).equals_to("new year");
                 assert_that(updated_course.semester).equals_to("new semester");
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

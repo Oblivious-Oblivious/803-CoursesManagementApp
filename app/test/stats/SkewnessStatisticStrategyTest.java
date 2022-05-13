@@ -68,6 +68,10 @@ public class SkewnessStatisticStrategyTest extends SpecModule {
                 SkewnessStatisticStrategy skewness = new SkewnessStatisticStrategy(this.course);
                 assert_that(skewness.calculate()).equals_to(1.688);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

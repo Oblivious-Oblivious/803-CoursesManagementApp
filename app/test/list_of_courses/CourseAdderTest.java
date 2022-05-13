@@ -16,7 +16,7 @@ public class CourseAdderTest extends SpecModule {
     private Course zarras;
 
     public void spec_code() {
-        before_each(() -> {
+        before(() -> {
             this.kavousianos = new Course(
                 "c1",
                 "Digital Design I",
@@ -78,6 +78,10 @@ public class CourseAdderTest extends SpecModule {
 
                 Course last_course = (Course)this.courses.get_by_id("c99");
                 assert_that(last_course.equals(mamoulis)).is(true);
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

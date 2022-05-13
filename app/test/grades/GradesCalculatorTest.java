@@ -81,6 +81,10 @@ public class GradesCalculatorTest extends SpecModule {
 
                 assert_that(weighted_average).equals_to(8.317);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

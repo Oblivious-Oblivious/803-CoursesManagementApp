@@ -111,6 +111,10 @@ public class StatisticsCalculatorTest extends SpecModule {
                 assert_that(results.get("Min")).equals_to(7.45);
                 assert_that(results.get("Median")).equals_to(8.317);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

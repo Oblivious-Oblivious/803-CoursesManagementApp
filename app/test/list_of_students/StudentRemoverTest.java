@@ -54,6 +54,10 @@ public class StudentRemoverTest extends SpecModule {
                 assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(0))).id).equals_to("4147");
                 assert_that(((StudentRegistration)(this.test.get_students_db().get_all_items().get(1))).id).equals_to("4333");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

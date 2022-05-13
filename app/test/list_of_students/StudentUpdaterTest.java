@@ -71,6 +71,10 @@ public class StudentUpdaterTest extends SpecModule {
                 assert_that(st.year_of_registration).equals_to("new year");
                 assert_that(st.semester).equals_to("new semester");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

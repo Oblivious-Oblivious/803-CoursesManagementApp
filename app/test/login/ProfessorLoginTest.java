@@ -41,6 +41,10 @@ public class ProfessorLoginTest extends SpecModule {
 
                 assert_that(log.login()).is(false);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

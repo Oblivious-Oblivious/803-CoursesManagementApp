@@ -68,6 +68,10 @@ public class MeanStatisticStrategyTest extends SpecModule {
                 MeanStatisticStrategy mean = new MeanStatisticStrategy(this.course);
                 assert_that(mean.calculate()).equals_to(8.317);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

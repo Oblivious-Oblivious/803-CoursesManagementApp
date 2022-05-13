@@ -58,6 +58,10 @@ public class StudentAdderTest extends SpecModule {
                 assert_that(this.test.get_students_db().get_all_items().size()).equals_to(4);
                 assert_that(((StudentRegistration)(this.test.get_students_db().get_by_id("9999"))).name).equals_to("Test Name");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

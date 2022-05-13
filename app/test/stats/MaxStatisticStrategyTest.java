@@ -68,6 +68,10 @@ public class MaxStatisticStrategyTest extends SpecModule {
                 MaxStatisticStrategy max = new MaxStatisticStrategy(this.course);
                 assert_that(max.calculate()).equals_to(9.85);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

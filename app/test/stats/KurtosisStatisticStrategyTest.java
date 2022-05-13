@@ -69,6 +69,10 @@ public class KurtosisStatisticStrategyTest extends SpecModule {
                 /* TODO Test some other kurtosis example */
                 assert_that(kurtosis.calculate()).equals_to(0d/0d); /* NaN */
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

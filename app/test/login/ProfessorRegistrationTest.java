@@ -133,6 +133,10 @@ public class ProfessorRegistrationTest extends SpecModule {
 
                 assert_that(hashed).equals_to(sha512hash(password));
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

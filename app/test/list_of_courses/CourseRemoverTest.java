@@ -16,7 +16,7 @@ public class CourseRemoverTest extends SpecModule {
     private Course zarras;
 
     public void spec_code() {
-        before_each(() -> {
+        before(() -> {
             this.kavousianos = new Course(
                 "c1",
                 "Digital Design I",
@@ -62,6 +62,10 @@ public class CourseRemoverTest extends SpecModule {
 
                 Course first_course = (Course)this.courses.get_by_id("c1");
                 assert_that(first_course.equals(this.kavousianos)).is(true);
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

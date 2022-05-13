@@ -68,6 +68,10 @@ public class MinStatisticStrategyTest extends SpecModule {
                 MinStatisticStrategy min = new MinStatisticStrategy(this.course);
                 assert_that(min.calculate()).equals_to(7.45);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

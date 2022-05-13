@@ -68,6 +68,10 @@ public class PercentileStatisticStrategyTest extends SpecModule {
                 PercentileStatisticStrategy percentile = new PercentileStatisticStrategy(this.course);
                 assert_that(percentile.calculate()).equals_to(42.42);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

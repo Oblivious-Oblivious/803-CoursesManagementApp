@@ -68,6 +68,10 @@ public class StandardDeviationStatisticStrategyTest extends SpecModule {
                 StandardDeviationStatisticStrategy standard_deviation = new StandardDeviationStatisticStrategy(this.course);
                 assert_that(standard_deviation.calculate()).equals_to(1.332);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

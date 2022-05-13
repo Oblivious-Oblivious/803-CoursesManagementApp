@@ -65,6 +65,10 @@ public class StudentBrowserTest extends SpecModule {
                 assert_that(((StudentRegistration)(list.get(1))).id).equals_to("4392");
                 assert_that(((StudentRegistration)(list.get(2))).id).equals_to("4147");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

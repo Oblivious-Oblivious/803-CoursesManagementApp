@@ -34,6 +34,10 @@ public class RegistrationTokenTest extends SpecModule {
                 RegistrationToken token = new RegistrationToken("id", "user", "pass");
                 assert_that(token.password).is("pass");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

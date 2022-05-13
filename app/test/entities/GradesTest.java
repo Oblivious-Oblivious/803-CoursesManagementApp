@@ -23,6 +23,10 @@ public class GradesTest extends SpecModule {
                 assert_that(g.exam).equals_to("5.2");
                 assert_that(g.semester).equals_to("4");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

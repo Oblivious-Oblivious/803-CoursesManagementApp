@@ -17,7 +17,7 @@ public class InstructorCourseSorterTest extends SpecModule {
     private PersistenceGateway courses;
 
     public void spec_code() {
-        before_each(() -> {
+        before(() -> {
             this.courses = new CustomGatewayImplementation("Courses");
             this.courses.save(new Course(
                 "c1",
@@ -62,6 +62,10 @@ public class InstructorCourseSorterTest extends SpecModule {
                 assert_that(((Course)(sorted.get(0))).equals(anastasiadis)).is(true);
                 assert_that(((Course)(sorted.get(1))).equals(kavousianos)).is(true);
                 assert_that(((Course)(sorted.get(2))).equals(zarras)).is(true);
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

@@ -16,7 +16,7 @@ public class SemesterStudentSorterTest extends SpecModule {
 
     public void spec_code() {
         describe("SemesterStudentSorter object", () -> {
-            before_each(() -> {
+            before(() -> {
                 this.course = new Course(
                     "id",
                     "name",
@@ -57,6 +57,10 @@ public class SemesterStudentSorterTest extends SpecModule {
                 assert_that(((StudentRegistration)(sorted.get(0))).name).equals_to("Georgiou");
                 assert_that(((StudentRegistration)(sorted.get(1))).name).equals_to("Koureas");
                 assert_that(((StudentRegistration)(sorted.get(2))).name).equals_to("Papapostolou");
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

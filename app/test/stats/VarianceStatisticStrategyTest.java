@@ -68,6 +68,10 @@ public class VarianceStatisticStrategyTest extends SpecModule {
                 VarianceStatisticStrategy variance = new VarianceStatisticStrategy(this.course);
                 assert_that(variance.calculate()).equals_to(1.773);
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

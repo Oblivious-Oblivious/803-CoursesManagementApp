@@ -20,7 +20,7 @@ public class CourseBrowserTest extends SpecModule {
     private Course zarras;
 
     public void spec_code() {
-        before_each(() -> {
+        before(() -> {
             this.kavousianos = new Course(
                 "c1",
                 "Digital Design I",
@@ -72,6 +72,10 @@ public class CourseBrowserTest extends SpecModule {
                 assert_that(((Course)(list.get(0))).equals(this.anastasiadis)).is(true);
                 assert_that(((Course)(list.get(1))).equals(this.kavousianos)).is(true);
                 assert_that(((Course)(list.get(2))).equals(this.zarras)).is(true);
+            });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
             });
         });
     }

@@ -60,6 +60,10 @@ public class GradesAdderTest extends SpecModule {
                 assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).project).equals_to("8.0");
                 assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).exam).equals_to("6.0");
             });
+
+            after(() -> {
+                new java.io.File("persistence/sqlite/src/Database.db").delete();
+            });
         });
     }
 }

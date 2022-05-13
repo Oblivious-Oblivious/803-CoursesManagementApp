@@ -7,7 +7,6 @@ public class StudentRegistration extends Identifiable {
     public String year_of_registration;
     public String semester;
 
-    /* TODO prob every persistence gateway should be transient */
     private transient PersistenceGateway grades_db;
 
     public StudentRegistration(

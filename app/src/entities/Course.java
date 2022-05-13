@@ -8,8 +8,7 @@ public class Course extends Identifiable {
     public String instructor;
     public String year;
     public String semester;
-    
-    /* TODO transient specific only to CustomDB */
+
     private transient PersistenceGateway students_db;
 
     public Course(

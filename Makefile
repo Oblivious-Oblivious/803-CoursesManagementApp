@@ -7,7 +7,7 @@ FLAGS =
 WARNINGS =
 REMOVE_WARN =
 HEADERS =
-LIBS = -classpath ./libs/jspec.jar:./libs/commons-math3-3.6.1.jar:.
+LIBS = -classpath ./libs/jspec.jar:./libs/commons-math3-3.6.1.jar:./libs/sqlite-jdbc-3.36.0.3.jar:.
 
 APPINPUT = app/src/**/*.java
 APPTESTINPUT = app/test/**/*.java app/test/TestRunner.java
@@ -20,7 +20,7 @@ WEBINPUT =
 APPOUTPUT = app/src/**/*.class
 APPTESTOUTPUT = app/test/**/*.class app/test/*.class
 DBOUTPUT = persistence/**/src/*.class persistence/*.class
-DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/custom/src/*.db
+DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/**/src/*.db
 STATSOUTPUT = statistics/**/*.class statistics/*.class
 CLIOUTPUT = client/cli/*.class
 WEBOUTPUT =

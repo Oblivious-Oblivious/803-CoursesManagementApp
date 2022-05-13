@@ -1,6 +1,6 @@
 package app.src.entities;
 
-import persistence.CustomGatewayImplementation;
+import persistence.SqliteGatewayImplementation;
 
 public class RegistrationToken extends Identifiable {
     public String username;
@@ -13,12 +13,12 @@ public class RegistrationToken extends Identifiable {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.courses_db = new CustomGatewayImplementation(this.username + "_courses");
+        this.courses_db = new SqliteGatewayImplementation(this.username + "_courses");
     }
 
     public PersistenceGateway get_courses_db() {
         if(this.courses_db == null)
-            this.courses_db = new CustomGatewayImplementation(this.username + "_courses");
+            this.courses_db = new SqliteGatewayImplementation(this.username + "_courses");
         return this.courses_db;
     }
 

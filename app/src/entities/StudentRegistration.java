@@ -1,6 +1,6 @@
 package app.src.entities;
 
-import persistence.CustomGatewayImplementation;
+import persistence.SqliteGatewayImplementation;
 
 public class StudentRegistration extends Identifiable {
     public String name;
@@ -21,12 +21,12 @@ public class StudentRegistration extends Identifiable {
         this.semester = semester;
 
         /* TODO Try to inject this */
-        this.grades_db = new CustomGatewayImplementation("Grades_" + this.id);
+        this.grades_db = new SqliteGatewayImplementation("Grades_" + this.id);
     }
 
     public PersistenceGateway get_grades_db() {
         if(this.grades_db == null)
-            this.grades_db = new CustomGatewayImplementation("Grades_" + this.id);
+            this.grades_db = new SqliteGatewayImplementation("Grades_" + this.id);
         return this.grades_db;
     }
 

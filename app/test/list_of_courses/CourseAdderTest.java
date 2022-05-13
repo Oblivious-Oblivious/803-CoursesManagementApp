@@ -76,7 +76,6 @@ public class CourseAdderTest extends SpecModule {
 
                 assert_that(this.courses.get_all_items().size()).equals_to(4);
 
-                /* TODO Implement the null object pattern */
                 Course last_course = (Course)this.courses.get_by_id("c99");
                 assert_that(last_course.equals(mamoulis)).is(true);
             });

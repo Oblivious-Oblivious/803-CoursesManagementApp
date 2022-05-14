@@ -29,10 +29,6 @@ public class ApacheMathDescriptive {
         return this.ds.getVariance();
     }
 
-    public double get_percentile(double datapoint) {
-        return this.ds.getPercentile(datapoint);
-    }
-
     public double get_skewness() {
         return this.ds.getSkewness();
     }

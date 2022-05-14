@@ -4,16 +4,18 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 import app.src.entities.Course;
+import app.src.entities.DescriptiveStatisticsGateway;
 import app.src.entities.Identifiable;
 import app.src.entities.StatisticsStrategy;
 import app.src.entities.StudentRegistration;
 import app.src.list_of_students.StudentAdder;
 import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
-import app.src.stats.MinStatisticStrategy;
 
 import app.src.stats.StatisticsCalculator;
 import app.src.stats.*;
+
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
 
 import jspec.*;
 
@@ -64,46 +66,45 @@ public class StatisticsCalculatorTest extends SpecModule {
 
         describe("StatisticsCalulator object", () -> {
             it("creates a StatisticsCalulator object", () -> {
-                StatisticsCalculator calc = new StatisticsCalculator();
+                StatisticsCalculator calc = new StatisticsCalculator(this.course);
                 assert_that(calc).isnot(null);
             });
 
             it("sets a field describing calculation strategies", () -> {
-                StatisticsCalculator calc = new StatisticsCalculator();
+                StatisticsCalculator calc = new StatisticsCalculator(this.course);
                 ArrayList<StatisticsStrategy> strategies = new ArrayList<StatisticsStrategy>();
-                strategies.add(new KurtosisStatisticStrategy(this.course));
-                strategies.add(new MaxStatisticStrategy(this.course));
-                strategies.add(new MeanStatisticStrategy(this.course));
-                strategies.add(new MedianStatisticStrategy(this.course));
-                strategies.add(new MinStatisticStrategy(this.course));
-                strategies.add(new PercentileStatisticStrategy(this.course));
-                strategies.add(new SkewnessStatisticStrategy(this.course));
-                strategies.add(new StandardDeviationStatisticStrategy(this.course));
-                strategies.add(new VarianceStatisticStrategy(this.course));
+                DescriptiveStatisticsGateway ds = new ApacheMathDescriptiveStatisticsGatewayImplementation();
+                strategies.add(new KurtosisStatisticStrategy(ds));
+                strategies.add(new MaxStatisticStrategy(ds));
+                strategies.add(new MeanStatisticStrategy(ds));
+                strategies.add(new MedianStatisticStrategy(ds));
+                strategies.add(new MinStatisticStrategy(ds));
+                strategies.add(new SkewnessStatisticStrategy(ds));
+                strategies.add(new StandardDeviationStatisticStrategy(ds));
+                strategies.add(new VarianceStatisticStrategy(ds));
                 calc.set_strategies(strategies);
 
-                assert_that(calc.strategies.size()).is(9);
+                assert_that(calc.strategies.size()).is(8);
             });
 
             it("creates a hashmap of all calculation results according to the strategy list", () -> {
-                StatisticsCalculator calc = new StatisticsCalculator();
+                StatisticsCalculator calc = new StatisticsCalculator(this.course);
                 ArrayList<StatisticsStrategy> strategies = new ArrayList<StatisticsStrategy>();
-                strategies.add(new KurtosisStatisticStrategy(this.course));
-                strategies.add(new MaxStatisticStrategy(this.course));
-                strategies.add(new MeanStatisticStrategy(this.course));
-                strategies.add(new MedianStatisticStrategy(this.course));
-                strategies.add(new MinStatisticStrategy(this.course));
-                strategies.add(new PercentileStatisticStrategy(this.course));
-                strategies.add(new SkewnessStatisticStrategy(this.course));
-                strategies.add(new StandardDeviationStatisticStrategy(this.course));
-                strategies.add(new VarianceStatisticStrategy(this.course));
+                DescriptiveStatisticsGateway ds = new ApacheMathDescriptiveStatisticsGatewayImplementation();
+                strategies.add(new KurtosisStatisticStrategy(ds));
+                strategies.add(new MaxStatisticStrategy(ds));
+                strategies.add(new MeanStatisticStrategy(ds));
+                strategies.add(new MedianStatisticStrategy(ds));
+                strategies.add(new MinStatisticStrategy(ds));
+                strategies.add(new SkewnessStatisticStrategy(ds));
+                strategies.add(new StandardDeviationStatisticStrategy(ds));
+                strategies.add(new VarianceStatisticStrategy(ds));
                 calc.set_strategies(strategies);
 
                 HashMap<String, Double> results = calc.calculate_statistics();
-                assert_that(results.size()).is(9);
+                assert_that(results.size()).is(8);
                 assert_that(results.get("Kurtosis")).equals_to(0d/0d);
                 assert_that(results.get("Skewness")).equals_to(1.688);
-                assert_that(results.get("Percentile")).equals_to(0.6);
                 assert_that(results.get("Max")).equals_to(9.85);
                 assert_that(results.get("Mean")).equals_to(8.317);
                 assert_that(results.get("Variance")).equals_to(1.773);

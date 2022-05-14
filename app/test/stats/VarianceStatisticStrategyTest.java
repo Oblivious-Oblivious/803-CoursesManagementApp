@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.VarianceStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class VarianceStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class VarianceStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a VarianceStatisticStrategy object", () -> {
-                VarianceStatisticStrategy variance = new VarianceStatisticStrategy(this.course);
+                VarianceStatisticStrategy variance = new VarianceStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(variance).isnot(null);
             });
 
             it("calculates the variance statistic out of a set of latest grades", () -> {
-                VarianceStatisticStrategy variance = new VarianceStatisticStrategy(this.course);
-                assert_that(variance.calculate()).equals_to(1.773);
+                VarianceStatisticStrategy variance = new VarianceStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(variance.calculate(this.course)).equals_to(1.773);
             });
 
             after(() -> {

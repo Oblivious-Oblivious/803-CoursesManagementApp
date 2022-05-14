@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.SkewnessStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class SkewnessStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class SkewnessStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a SkewnessStatisticStrategy object", () -> {
-                SkewnessStatisticStrategy skewness = new SkewnessStatisticStrategy(this.course);
+                SkewnessStatisticStrategy skewness = new SkewnessStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(skewness).isnot(null);
             });
 
             it("calculates the skewness statistic out of a set of latest grades", () -> {
-                SkewnessStatisticStrategy skewness = new SkewnessStatisticStrategy(this.course);
-                assert_that(skewness.calculate()).equals_to(1.688);
+                SkewnessStatisticStrategy skewness = new SkewnessStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(skewness.calculate(this.course)).equals_to(1.688);
             });
 
             after(() -> {

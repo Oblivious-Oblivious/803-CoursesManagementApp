@@ -1,21 +1,19 @@
 package app.src.stats;
 
 import app.src.entities.Course;
+import app.src.entities.DescriptiveStatisticsGateway;
 import app.src.entities.StatisticsStrategy;
 
-/* TODO Inject this */
-import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
-
 public class MeanStatisticStrategy extends StatisticsStrategy {
-    private ApacheMathDescriptiveStatisticsGatewayImplementation ds = null;
+    private DescriptiveStatisticsGateway ds = null;
 
-    public MeanStatisticStrategy(Course course) {
-        this.ds = new ApacheMathDescriptiveStatisticsGatewayImplementation(this.grades_to_double_array(course));
+    public MeanStatisticStrategy(DescriptiveStatisticsGateway ds) {
+        this.ds = ds;
     }
 
     @Override
-    public double calculate() {
-        return this.ds.get_mean();
+    public double calculate(Course course) {
+        return this.ds.get_mean(this.grades_to_double_array(course));
     }
 
     @Override

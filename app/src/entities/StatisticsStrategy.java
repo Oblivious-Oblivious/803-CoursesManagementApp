@@ -20,6 +20,6 @@ public abstract class StatisticsStrategy {
         return grades_doubles;
     }
 
-    public abstract double calculate();
+    public abstract double calculate(Course course);
     public abstract String toString();
 }

@@ -3,10 +3,16 @@ package app.src.stats;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import app.src.entities.Course;
 import app.src.entities.StatisticsStrategy;
 
 public class StatisticsCalculator {
     public ArrayList<StatisticsStrategy> strategies = null;
+    public Course course;
+
+    public StatisticsCalculator(Course course) {
+        this.course = course;
+    }
 
     public void set_strategies(ArrayList<StatisticsStrategy> strategies) {
         this.strategies = strategies;
@@ -16,7 +22,7 @@ public class StatisticsCalculator {
         HashMap<String, Double> stats = new HashMap<String, Double>();
 
         for(StatisticsStrategy strategy : this.strategies)
-            stats.put(strategy.toString(), strategy.calculate());
+            stats.put(strategy.toString(), strategy.calculate(this.course));
         
         return stats;
     }

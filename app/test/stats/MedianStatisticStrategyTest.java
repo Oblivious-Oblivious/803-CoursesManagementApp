@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.MedianStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class MedianStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class MedianStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a MedianStatisticStrategy object", () -> {
-                MedianStatisticStrategy median = new MedianStatisticStrategy(this.course);
+                MedianStatisticStrategy median = new MedianStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(median).isnot(null);
             });
 
             it("calculates the median statistic out of a set of latest grades", () -> {
-                MedianStatisticStrategy median = new MedianStatisticStrategy(this.course);
-                assert_that(median.calculate()).equals_to(8.317);
+                MedianStatisticStrategy median = new MedianStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(median.calculate(this.course)).equals_to(8.317);
             });
 
             after(() -> {

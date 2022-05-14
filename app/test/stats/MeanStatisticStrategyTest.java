@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.MeanStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class MeanStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class MeanStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a MeanStatisticStrategy object", () -> {
-                MeanStatisticStrategy mean = new MeanStatisticStrategy(this.course);
+                MeanStatisticStrategy mean = new MeanStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(mean).isnot(null);
             });
 
             it("calculates the mean statistic out of a set of latest grades", () -> {
-                MeanStatisticStrategy mean = new MeanStatisticStrategy(this.course);
-                assert_that(mean.calculate()).equals_to(8.317);
+                MeanStatisticStrategy mean = new MeanStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(mean.calculate(this.course)).equals_to(8.317);
             });
 
             after(() -> {

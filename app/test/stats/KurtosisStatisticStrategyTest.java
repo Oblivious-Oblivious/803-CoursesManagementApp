@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.KurtosisStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class KurtosisStatisticStrategyTest extends SpecModule {
@@ -60,14 +62,14 @@ public class KurtosisStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a KurtosisStatisticStrategy object", () -> {
-                KurtosisStatisticStrategy kurtosis = new KurtosisStatisticStrategy(this.course);
+                KurtosisStatisticStrategy kurtosis = new KurtosisStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(kurtosis).isnot(null);
             });
 
             it("calculates the kurtosis statistic out of a set of latest grades", () -> {
-                KurtosisStatisticStrategy kurtosis = new KurtosisStatisticStrategy(this.course);
+                KurtosisStatisticStrategy kurtosis = new KurtosisStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 /* TODO Test some other kurtosis example */
-                assert_that(kurtosis.calculate()).equals_to(0d/0d); /* NaN */
+                assert_that(kurtosis.calculate(this.course)).equals_to(0d/0d); /* NaN */
             });
 
             after(() -> {

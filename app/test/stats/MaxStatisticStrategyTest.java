@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.MaxStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class MaxStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class MaxStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a MaxStatisticStrategy object", () -> {
-                MaxStatisticStrategy max = new MaxStatisticStrategy(this.course);
+                MaxStatisticStrategy max = new MaxStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(max).isnot(null);
             });
 
             it("calculates the max statistic out of a set of latest grades", () -> {
-                MaxStatisticStrategy max = new MaxStatisticStrategy(this.course);
-                assert_that(max.calculate()).equals_to(9.85);
+                MaxStatisticStrategy max = new MaxStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(max.calculate(this.course)).equals_to(9.85);
             });
 
             after(() -> {

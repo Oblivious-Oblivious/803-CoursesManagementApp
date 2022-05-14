@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.MinStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class MinStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class MinStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a MinStatisticStrategy object", () -> {
-                MinStatisticStrategy min = new MinStatisticStrategy(this.course);
+                MinStatisticStrategy min = new MinStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(min).isnot(null);
             });
 
             it("calculates the min statistic out of a set of latest grades", () -> {
-                MinStatisticStrategy min = new MinStatisticStrategy(this.course);
-                assert_that(min.calculate()).equals_to(7.45);
+                MinStatisticStrategy min = new MinStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(min.calculate(this.course)).equals_to(7.45);
             });
 
             after(() -> {

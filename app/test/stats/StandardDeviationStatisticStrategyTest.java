@@ -11,6 +11,8 @@ import app.src.grades.GradesAdder;
 import app.src.grades.GradesCalculator;
 import app.src.stats.StandardDeviationStatisticStrategy;
 
+import statistics.ApacheMathDescriptiveStatisticsGatewayImplementation;
+
 import jspec.*;
 
 public class StandardDeviationStatisticStrategyTest extends SpecModule {
@@ -60,13 +62,13 @@ public class StandardDeviationStatisticStrategyTest extends SpecModule {
             });
 
             it("creates a StandardDeviationStatisticStrategy object", () -> {
-                StandardDeviationStatisticStrategy standard_deviation = new StandardDeviationStatisticStrategy(this.course);
+                StandardDeviationStatisticStrategy standard_deviation = new StandardDeviationStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
                 assert_that(standard_deviation).isnot(null);
             });
 
             it("calculates the standard_deviation statistic out of a set of latest grades", () -> {
-                StandardDeviationStatisticStrategy standard_deviation = new StandardDeviationStatisticStrategy(this.course);
-                assert_that(standard_deviation.calculate()).equals_to(1.332);
+                StandardDeviationStatisticStrategy standard_deviation = new StandardDeviationStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
+                assert_that(standard_deviation.calculate(this.course)).equals_to(1.332);
             });
 
             after(() -> {

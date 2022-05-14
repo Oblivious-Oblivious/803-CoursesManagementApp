@@ -32,16 +32,16 @@ compile:
 	@echo
 
 test: compile
-	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(APPTESTINPUT)
+	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPTESTINPUT)
 	$(JAVA) $(LIBS) app/test/TestRunner
 
 testdb:
-	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(LIBS) $(DBINPUT) $(DBTESTINPUT)
+	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(DBINPUT) $(DBTESTINPUT)
 	$(JAVA) $(LIBS) persistence/TestRunner
 
 cli:
-	$(CC) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
-	$(JAVA) client/cli/EntryPoint
+	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
+	$(JAVA) $(LIBS) client/cli/EntryPoint
 
 web:
 

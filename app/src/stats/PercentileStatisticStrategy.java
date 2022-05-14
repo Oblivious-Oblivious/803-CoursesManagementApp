@@ -15,7 +15,10 @@ public class PercentileStatisticStrategy extends StatisticsStrategy {
 
     @Override
     public double calculate() {
-        return 0;
+        /* TODO Figure out how to forward the datapoint parameter */
+        double arr[] = {3, 5, 7, 5, 3};
+        this.ds = new ApacheMathDescriptiveStatisticsGatewayImplementation(arr);
+        return this.ds.get_percentile(5) / arr.length;
     }
 
     @Override

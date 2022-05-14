@@ -50,7 +50,6 @@ public class TestRunner {
             new MeanStatisticStrategyTest(),
             new MedianStatisticStrategyTest(),
             new MinStatisticStrategyTest(),
-            new PercentileStatisticStrategyTest(),
             new SkewnessStatisticStrategyTest(),
             new StandardDeviationStatisticStrategyTest(),
             new VarianceStatisticStrategyTest(),

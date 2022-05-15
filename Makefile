@@ -27,19 +27,23 @@ WEBOUTPUT =
 
 all: compile
 
-compile:
+compile: compile_jspec
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT) $(DBINPUT) $(STATSINPUT)
 	@echo
+
+compile_jspec:
+	cd jspec && make
+	mv jspec/export/jspec.jar libs/
 
 test: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPTESTINPUT)
 	$(JAVA) $(LIBS) app/test/TestRunner
 
-testdb:
+testdb: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(DBINPUT) $(DBTESTINPUT)
 	$(JAVA) $(LIBS) persistence/TestRunner
 
-cli:
+cli: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
 	$(JAVA) $(LIBS) client/cli/EntryPoint
 

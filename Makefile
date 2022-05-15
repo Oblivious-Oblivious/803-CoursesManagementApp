@@ -43,7 +43,8 @@ cli:
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
 	$(JAVA) $(LIBS) client/cli/EntryPoint
 
-web:
+web: compile
+	cd ./client/web/boot_backend && ./mvnw spring-boot:run
 
 clean:
 	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT)

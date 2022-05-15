@@ -1,9 +1,10 @@
 package app.src.list_of_students;
 
+import app.src.boundaries.StudentUpdaterBoundary;
 import app.src.entities.Course;
 import app.src.entities.StudentRegistration;
 
-public class StudentUpdater {
+public class StudentUpdater implements StudentUpdaterBoundary {
     private Course course;
     private String id;
     private StudentRegistration current_edited_student;
@@ -34,6 +35,7 @@ public class StudentUpdater {
         return this;
     }
 
+    @Override
     public void update() {
         this.course.get_students_db().update(
             this.id,

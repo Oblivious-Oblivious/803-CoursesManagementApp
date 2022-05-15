@@ -2,12 +2,13 @@ package app.src.grades;
 
 import java.util.ArrayList;
 
+import app.src.boundaries.GradesCalculatorBoundary;
 import app.src.entities.Course;
 import app.src.entities.Grades;
 import app.src.entities.Identifiable;
 import app.src.entities.StudentRegistration;
 
-public class GradesCalculator {
+public class GradesCalculator implements GradesCalculatorBoundary {
     private Course course;
 
     public GradesCalculator(Course course) {
@@ -27,6 +28,7 @@ public class GradesCalculator {
         return latest;
     }
 
+    @Override
     public double calculate_weighted_average(double project_weight) {
         ArrayList<Grades> latest = get_latest_grades();
 

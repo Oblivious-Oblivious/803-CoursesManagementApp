@@ -1,9 +1,10 @@
 package app.src.list_of_courses;
 
+import app.src.boundaries.CourseUpdaterBoundary;
 import app.src.entities.Course;
 import app.src.entities.PersistenceGateway;
 
-public class CourseUpdater {
+public class CourseUpdater implements CourseUpdaterBoundary {
     private PersistenceGateway courses_db;
     private String id;
     private Course current_edited_course;
@@ -39,6 +40,7 @@ public class CourseUpdater {
         return this;
     }
 
+    @Override
     public void update() {
         this.courses_db.update(
             this.id,

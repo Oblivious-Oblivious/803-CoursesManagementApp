@@ -4,11 +4,12 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import app.src.boundaries.RegisterBoundary;
 import app.src.entities.Identifiable;
 import app.src.entities.PersistenceGateway;
 import app.src.entities.RegistrationToken;
 
-public class ProfessorRegistration {
+public class ProfessorRegistration implements RegisterBoundary {
     private PersistenceGateway accounts_db;
     private String username;
     private String password;

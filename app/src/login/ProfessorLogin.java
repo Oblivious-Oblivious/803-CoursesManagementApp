@@ -1,10 +1,11 @@
 package app.src.login;
 
+import app.src.boundaries.LoginBoundary;
 import app.src.entities.Identifiable;
 import app.src.entities.PersistenceGateway;
 import app.src.entities.RegistrationToken;
 
-public class ProfessorLogin {
+public class ProfessorLogin implements LoginBoundary {
     private RegistrationToken token = null;
     private PersistenceGateway accounts_db = null;
 
@@ -13,6 +14,7 @@ public class ProfessorLogin {
         this.accounts_db = accounts_db;
     }
 
+    @Override
     public boolean login() {
         /* TODO Change method of searching to search by name or id */
         for(Identifiable acc : this.accounts_db.get_all_items())

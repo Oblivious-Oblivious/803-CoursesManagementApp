@@ -3,10 +3,11 @@ package app.src.stats;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import app.src.boundaries.StatisticsCalculatorBoundary;
 import app.src.entities.Course;
 import app.src.entities.StatisticsStrategy;
 
-public class StatisticsCalculator {
+public class StatisticsCalculator implements StatisticsCalculatorBoundary {
     public ArrayList<StatisticsStrategy> strategies = null;
     public Course course;
 
@@ -18,6 +19,7 @@ public class StatisticsCalculator {
         this.strategies = strategies;
     }
 
+    @Override
     public HashMap<String, Double> calculate_statistics() {
         HashMap<String, Double> stats = new HashMap<String, Double>();
 

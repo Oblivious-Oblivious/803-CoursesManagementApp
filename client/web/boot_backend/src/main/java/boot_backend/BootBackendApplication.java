@@ -37,9 +37,15 @@ public class BootBackendApplication {
         return "COURSES PAGE";
     }
 
-    @GetMapping(value = "/student/{id}")
-    public String student(@PathVariable String id) {
+    @GetMapping("/course/{id}")
+    public String course() {
         /* TODO Implement html */
-        return "STUDENT ID: " + id;
+        return "COURSES PAGE";
+    }
+
+    @GetMapping(value = "/course/{cid}/student/{sid}")
+    public String student(@PathVariable String cid, @PathVariable String sid) {
+        /* TODO Implement html */
+        return "(COURSE,STUDENT) : (" + cid + "," + sid + ")";
     }
 }

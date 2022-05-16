@@ -23,7 +23,7 @@ DBOUTPUT = persistence/**/src/*.class persistence/*.class
 DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/**/src/*.db
 STATSOUTPUT = statistics/**/*.class statistics/*.class
 CLIOUTPUT = client/cli/*.class
-WEBOUTPUT =
+WEBOUTPUT = client/web/boot_backend/target
 
 all: compile
 
@@ -51,4 +51,4 @@ web: compile
 	cd ./client/web/boot_backend && ./mvnw spring-boot:run
 
 clean:
-	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT)
+	$(RM) -rf $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT) $(WEBOUTPUT)

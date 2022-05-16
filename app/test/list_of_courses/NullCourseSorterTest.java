@@ -20,7 +20,6 @@ public class NullCourseSorterTest extends SpecModule {
         before(() -> {
             this.courses = new CustomGatewayImplementation("Courses");
             this.courses.save(new Course(
-                "c1",
                 "Digital Design I",
                 "Some info about ditital design 1",
                 "Kavousianos",
@@ -28,7 +27,6 @@ public class NullCourseSorterTest extends SpecModule {
                 "3"
             ));
             this.courses.save(new Course(
-                "c2",
                 "Software Engineering",
                 "More info about S. E.",
                 "Zarras",
@@ -36,7 +34,6 @@ public class NullCourseSorterTest extends SpecModule {
                 "8"
             ));
             this.courses.save(new Course(
-                "c3",
                 "Operating Systems",
                 "OS class information and syllabus",
                 "Anastasiadis",
@@ -55,9 +52,9 @@ public class NullCourseSorterTest extends SpecModule {
                 CourseSorter null_sorter = new NullCourseSorter();
                 ArrayList<Identifiable> sorted = null_sorter.sort(this.courses);
 
-                Course anastasiadis = new Course("c3", "Operating Systems", "OS class information and syllabus", "Anastasiadis", "2021", "7");
-                Course kavousianos = new Course("c1", "Digital Design I", "Some info about ditital design 1", "Kavousianos", "2020", "3");
-                Course zarras = new Course("c2", "Software Engineering", "More info about S. E.", "Zarras", "2022", "8");
+                Course anastasiadis = new Course("Operating Systems", "OS class information and syllabus", "Anastasiadis", "2021", "7");
+                Course kavousianos = new Course("Digital Design I", "Some info about ditital design 1", "Kavousianos", "2020", "3");
+                Course zarras = new Course("Software Engineering", "More info about S. E.", "Zarras", "2022", "8");
 
                 assert_that(((Course)(sorted.get(0))).equals(kavousianos)).is(true);
                 assert_that(((Course)(sorted.get(1))).equals(zarras)).is(true);

@@ -14,34 +14,30 @@ public class GradesAdderTest extends SpecModule {
         describe("GradesAdder object", () -> {
             before(() -> {
                 this.reg = new StudentRegistration(
-                    "4147",
                     "Ath Pap",
                     "2017",
                     "10"
                 );
 
                 this.reg.get_grades_db().save(new Grades(
-                    "4th_sem",
                     "8.0",
                     "2.5", /* Failing */
                     "4"
                 ));
 
                 this.reg.get_grades_db().save(new Grades(
-                    "6th_sem",
                     "8.0",
                     "3.5", /* Failing */
                     "6"
                 ));
 
                 this.reg.get_grades_db().save(new Grades(
-                    "8th_sem",
                     "8.0",
                     "4.5", /* TODO Add colors for passing/failing students */
                     "8"
                 ));
             });
-
+            
             it("creates a grades adder object", () -> {
                 GradesAdder adder = new GradesAdder(this.reg);
                 assert_that(adder).isnot(null);
@@ -50,15 +46,12 @@ public class GradesAdderTest extends SpecModule {
             it("adds a new object to the list of grades", () -> {
                 GradesAdder adder = new GradesAdder(this.reg);
                 adder.add_new_grades(
-                    "10th_sem",
                     "8.0",
                     "6.0",
                     "10"
                 );
 
                 assert_that(this.reg.get_grades_db().get_all_items().size()).equals_to(4);
-                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).project).equals_to("8.0");
-                assert_that(((Grades)(this.reg.get_grades_db().get_by_id("10th_sem"))).exam).equals_to("6.0");
             });
 
             after(() -> {

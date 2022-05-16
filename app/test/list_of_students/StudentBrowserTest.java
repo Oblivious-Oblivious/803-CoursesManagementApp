@@ -18,7 +18,6 @@ public class StudentBrowserTest extends SpecModule {
         describe("StudentBrowser object", () -> {
             before(() -> {
                 this.test = new Course(
-                    "id",
                     "name",
                     "syllabus",
                     "instructor",
@@ -26,19 +25,16 @@ public class StudentBrowserTest extends SpecModule {
                 );
 
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4147",
                     "Papapostolou",
                     "2017",
                     "10"
                 ));
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4392",
                     "Koureas",
                     "2018",
                     "8"
                 ));
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4333",
                     "Georgiou",
                     "2018",
                     "8"
@@ -61,9 +57,9 @@ public class StudentBrowserTest extends SpecModule {
                 );
 
                 ArrayList<Identifiable> list = browser.list_students();
-                assert_that(((StudentRegistration)(list.get(0))).id).equals_to("4333");
-                assert_that(((StudentRegistration)(list.get(1))).id).equals_to("4392");
-                assert_that(((StudentRegistration)(list.get(2))).id).equals_to("4147");
+                assert_that(((StudentRegistration)(list.get(0))).name).equals_to("Georgiou");
+                assert_that(((StudentRegistration)(list.get(1))).name).equals_to("Koureas");
+                assert_that(((StudentRegistration)(list.get(2))).name).equals_to("Papapostolou");
             });
 
             after(() -> {

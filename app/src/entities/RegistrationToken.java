@@ -1,5 +1,7 @@
 package app.src.entities;
 
+import java.util.UUID;
+
 import persistence.SqliteGatewayImplementation;
 
 public class RegistrationToken extends Identifiable {
@@ -9,8 +11,8 @@ public class RegistrationToken extends Identifiable {
     /* TODO inject this */
     private transient PersistenceGateway courses_db = null;
 
-    public RegistrationToken(String id, String username, String password) {
-        this.id = id;
+    public RegistrationToken(String username, String password) {
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
         this.username = username;
         this.password = password;
         this.courses_db = new SqliteGatewayImplementation(this.username + "_courses");

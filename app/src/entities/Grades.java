@@ -1,12 +1,14 @@
 package app.src.entities;
 
+import java.util.UUID;
+
 public class Grades extends Identifiable {
     public String project;
     public String exam;
     public String semester;
 
-    public Grades(String id, String project, String exam, String semester) {
-        this.id = id;
+    public Grades(String project, String exam, String semester) {
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
         this.project = project;
         this.exam = exam;
         this.semester = semester;

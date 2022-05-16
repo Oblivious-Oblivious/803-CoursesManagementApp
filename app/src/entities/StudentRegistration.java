@@ -1,5 +1,7 @@
 package app.src.entities;
 
+import java.util.UUID;
+
 import persistence.SqliteGatewayImplementation;
 
 public class StudentRegistration extends Identifiable {
@@ -10,12 +12,11 @@ public class StudentRegistration extends Identifiable {
     private transient PersistenceGateway grades_db;
 
     public StudentRegistration(
-        String id,
         String name,
         String year_of_registration,
         String semester
     ) {
-        this.id = id;
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
         this.name = name;
         this.year_of_registration = year_of_registration;
         this.semester = semester;

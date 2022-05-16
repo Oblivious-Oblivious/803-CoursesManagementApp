@@ -62,7 +62,6 @@ public class ProfessorRegistration implements RegisterBoundary {
             return false;
 
         RegistrationToken token = new RegistrationToken(
-            "id",
             this.username,
             hash_password()
         );

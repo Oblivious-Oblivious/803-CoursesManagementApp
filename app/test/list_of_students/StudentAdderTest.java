@@ -14,7 +14,6 @@ public class StudentAdderTest extends SpecModule {
         describe("StudentAdder object", () -> {
             before(() -> {
                 this.test = new Course(
-                    "id",
                     "name",
                     "syllabus",
                     "instructor",
@@ -22,19 +21,16 @@ public class StudentAdderTest extends SpecModule {
                 );
 
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4147",
                     "Ath Pap",
                     "2017",
                     "10"
                 ));
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4392",
                     "Ath Kour",
                     "2018",
                     "8"
                 ));
                 this.test.get_students_db().save(new StudentRegistration(
-                    "4333",
                     "Kon Geo",
                     "2018",
                     "8"
@@ -49,14 +45,12 @@ public class StudentAdderTest extends SpecModule {
             it("adds a new object to the list of students", () -> {
                 StudentAdder adder = new StudentAdder(this.test);
                 adder.add_new_student(
-                    "9999",
                     "Test Name",
                     "2014",
                     "17"
                 );
 
                 assert_that(this.test.get_students_db().get_all_items().size()).equals_to(4);
-                assert_that(((StudentRegistration)(this.test.get_students_db().get_by_id("9999"))).name).equals_to("Test Name");
             });
 
             after(() -> {

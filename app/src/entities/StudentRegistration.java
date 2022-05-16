@@ -43,7 +43,6 @@ public class StudentRegistration extends Identifiable {
     }
 
     public int compare_semesters(StudentRegistration other) {
-        /* TODO String version has a logic error */
         return Integer.compare(Integer.parseInt(this.semester), Integer.parseInt(other.semester));
     }
 

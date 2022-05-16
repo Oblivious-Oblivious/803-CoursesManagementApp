@@ -68,7 +68,6 @@ public class KurtosisStatisticStrategyTest extends SpecModule {
 
             it("calculates the kurtosis statistic out of a set of latest grades", () -> {
                 KurtosisStatisticStrategy kurtosis = new KurtosisStatisticStrategy(new ApacheMathDescriptiveStatisticsGatewayImplementation());
-                /* TODO Test some other kurtosis example */
                 assert_that(kurtosis.calculate(this.course)).equals_to(0d/0d); /* NaN */
             });
 

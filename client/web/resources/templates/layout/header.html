@@ -1,5 +1,6 @@
+<!-- TODO Add logo in login/register pages -->
 <div th:fragment="header">
-    <header class="headeropen">
+    <header>
         <nav class="logo">
             <div th:replace="layout/header/logo :: logo" />
         </nav>
@@ -10,7 +11,7 @@
     </header>
 
     <style>
-        .headeropen {
+        header {
             position: fixed;
             background-color: var(--nav-bg-color);
             top: 0;
@@ -21,10 +22,6 @@
             padding: 0.75rem 2rem;
             display: flex;
             justify-content: space-between;
-        }
-    
-        header.headeropen {
-            box-shadow: none;
             transition: 300ms;
         }
     

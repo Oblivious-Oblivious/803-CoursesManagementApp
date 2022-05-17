@@ -21,7 +21,7 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("sucessfully logins with an existing registration token", () -> {
                 CustomGatewayImplementation accounts_db = new CustomGatewayImplementation("Accounts");
-                accounts_db.save(new RegistrationToken("Oblivious", "one two three four"));
+                accounts_db.save(new RegistrationToken("Oblivious", "8d48c742b38936946143fd3abd5d6bee7b9a696c098fdb6d2989774318640f13d08035898728b21b9235dbf39300af964df593ecabeb4f4dd9249ed5f544229f"));
                 accounts_db.save(new RegistrationToken("Second", "one two three four"));
                 accounts_db.save(new RegistrationToken("Third", "one two three four"));
 
@@ -35,7 +35,7 @@ public class ProfessorLoginTest extends SpecModule {
 
             it("fails to login with a non existing registration token", () -> {
                 ProfessorLogin log = new ProfessorLogin(
-                    new RegistrationToken("OOOOblivious", "one two three four"),
+                    new RegistrationToken("OOOOblivious", "8d48c742b38936946143fd3abd5d6bee7b9a696c098fdb6d2989774318640f13d08035898728b21b9235dbf39300af964df593ecabeb4f4dd9249ed5f544229f"),
                     new CustomGatewayImplementation("Accounts")
                 );
 

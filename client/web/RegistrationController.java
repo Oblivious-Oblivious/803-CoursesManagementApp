@@ -17,7 +17,7 @@ public class RegistrationController {
     public String save_registration_token(RegistrationToken reg) {
         RegisterBoundary checker = new ProfessorRegistration(reg, new SqliteGatewayImplementation("Accounts"));
         if(checker.register())
-            return "routes/course_browser";
+            return "redirect:/courses";
         return "redirect:/register";
         /* TODO Add a message dialog that rejects invalid inputs */
     }

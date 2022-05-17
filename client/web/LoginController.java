@@ -18,7 +18,7 @@ public class LoginController {
     public String authenticate_credentials(RegistrationToken reg) {
         LoginBoundary checker = new ProfessorLogin(reg, new SqliteGatewayImplementation("Accounts"));
         if(checker.login())
-            return "routes/course_browser";
+            return "redirect:/courses";
         return "redirect:/login";
         /* TODO Add a message dialog that rejects invalid inputs */
     }

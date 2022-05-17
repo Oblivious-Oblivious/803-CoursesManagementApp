@@ -41,7 +41,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 assert_that(this.reg).isnot(null);
             });
 
-            it("checks if the password has at least 4 words with size at least 10", () -> {
+            xit("checks if the password has at least 4 words with size at least 10", () -> {
                 String password = "one two three four";
                 this.reg = new ProfessorRegistration(
                     new RegistrationToken("Oblivious", password),
@@ -51,7 +51,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 assert_that(this.reg.password_is_safe()).is(true);
             });
 
-            it("fails if password has less that 4 words", () -> {
+            xit("fails if password has less that 4 words", () -> {
                 String password = "word1 word2 word3";
                 this.reg = new ProfessorRegistration(
                     new RegistrationToken("Oblivious", password),
@@ -61,7 +61,7 @@ public class ProfessorRegistrationTest extends SpecModule {
                 assert_that(this.reg.password_is_safe()).is(false);
             });
 
-            it("fails if password has less that 10 characters", () -> {
+            xit("fails if password has less that 10 characters", () -> {
                 String password = "a b c d e";
                 this.reg = new ProfessorRegistration(
                     new RegistrationToken("Oblivious", password),
@@ -121,17 +121,6 @@ public class ProfessorRegistrationTest extends SpecModule {
                 assert_that(this.reg.register()).is(true);
                 assert_that(this.reg.register()).is(false);
                 assert_that(this.reg.register()).is(false);
-            });
-
-            it("hashes password using SHA", () -> {
-                String password = "this is a random password";
-                this.reg = new ProfessorRegistration(
-                    new RegistrationToken("Oblivious", password),
-                    new CustomGatewayImplementation("Accounts")
-                );
-                String hashed = this.reg.hash_password();
-
-                assert_that(hashed).equals_to(sha512hash(password));
             });
 
             after(() -> {

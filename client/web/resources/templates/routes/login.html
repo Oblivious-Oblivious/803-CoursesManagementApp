@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/variables.css" media="screen" />
 
 <div class="center">
-    <h1>Register</h1>
+    <h1>Login</h1>
     <form action="#" th:action="@{/authenticate_credentials}" th:object="${reg}" method="post">
         <div class="text_field">
             <input type="text" th:field="*{username}" required>

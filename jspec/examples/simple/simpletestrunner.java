@@ -1,6 +1,6 @@
 import jspec.*;
 
-public class testrunner {
+public class simpletestrunner {
     public static void main(String args[]) {
         SpecModule modules[] = {
             new cDataLib(),

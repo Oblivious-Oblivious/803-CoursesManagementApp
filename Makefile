@@ -23,7 +23,7 @@ DBOUTPUT = persistence/**/src/*.class persistence/*.class
 DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/**/src/*.db
 STATSOUTPUT = statistics/**/*.class statistics/*.class
 CLIOUTPUT = client/cli/*.class
-WEBOUTPUT = client/web/boot_backend/target
+WEBOUTPUT = target
 
 all: compile
 
@@ -48,7 +48,7 @@ cli: compile
 	$(JAVA) $(LIBS) client/cli/EntryPoint
 
 web: compile
-	cd ./client/web/boot_backend && ./mvnw spring-boot:run
+	./mvnw spring-boot:run
 
 clean:
 	$(RM) -rf $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT) $(WEBOUTPUT)

@@ -6,15 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import app.src.boundaries.CourseBrowserBoundary;
-
-import app.src.entities.Course;
-import app.src.entities.PersistenceGateway;
 import app.src.entities.RegistrationToken;
 
 import app.src.list_of_courses.CourseBrowser;
 import app.src.list_of_courses.NameCourseSorter;
-
-import persistence.SqliteGatewayImplementation;
 
 @Controller
 public class CourseBrowserController {

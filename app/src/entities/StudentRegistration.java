@@ -25,6 +25,25 @@ public class StudentRegistration extends Identifiable {
         this.grades_db = new SqliteGatewayImplementation("Grades_" + this.id);
     }
 
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getYear_of_registration() {
+        return this.year_of_registration;
+    }
+    public void setYear_of_registration(String year_of_registration) {
+        this.year_of_registration = year_of_registration;
+    }
+    public String getSemester() {
+        return this.semester;
+    }
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
     public PersistenceGateway get_grades_db() {
         if(this.grades_db == null)
             this.grades_db = new SqliteGatewayImplementation("Grades_" + this.id);

@@ -18,6 +18,19 @@ public class RegistrationToken extends Identifiable {
         this.courses_db = new SqliteGatewayImplementation(this.username + "_courses");
     }
 
+    public String getUsername() {
+        return this.username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public PersistenceGateway get_courses_db() {
         if(this.courses_db == null)
             this.courses_db = new SqliteGatewayImplementation(this.username + "_courses");

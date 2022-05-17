@@ -8,7 +8,7 @@ public class RegistrationToken extends Identifiable {
     public String username;
     public String password;
 
-    /* TODO inject this */
+    /* TODO Inject this */
     private transient PersistenceGateway courses_db = null;
 
     public RegistrationToken(String username, String password) {

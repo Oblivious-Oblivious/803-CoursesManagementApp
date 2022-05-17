@@ -37,7 +37,6 @@ public class ProfessorLogin implements LoginBoundary {
     @Override
     public boolean login() {
         this.token.password = hash_password();
-        /* TODO Change method of searching to search by name or id */
         for(Identifiable acc : this.accounts_db.get_all_items())
             if(((RegistrationToken)acc).equals(this.token))
                 return true;

@@ -21,7 +21,6 @@ public class ProfessorRegistration implements RegisterBoundary {
     }
 
     public boolean username_is_safe() {
-        /* TODO need different method of accessing db */
         for(Identifiable item : this.accounts_db.get_all_items()) {
             RegistrationToken token = (RegistrationToken)item;
             if(token.username.equals(username))

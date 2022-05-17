@@ -9,6 +9,7 @@ public class StudentRegistration extends Identifiable {
     public String year_of_registration;
     public String semester;
 
+    /* TODO Inject this */
     private transient PersistenceGateway grades_db;
 
     public StudentRegistration(
@@ -20,8 +21,6 @@ public class StudentRegistration extends Identifiable {
         this.name = name;
         this.year_of_registration = year_of_registration;
         this.semester = semester;
-
-        /* TODO Try to inject this */
         this.grades_db = new SqliteGatewayImplementation("Grades_" + this.id);
     }
 

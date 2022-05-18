@@ -29,7 +29,7 @@ public class CourseAdderController {
             course.year,
             course.semester
         );
-        return "redirect:/courses?userid=" + token.id + "&username=" + token.username + "&password=" + token.password;
+        return "redirect:/courses?userid=" + token.id;
     }
 
     @GetMapping("/courses/add")

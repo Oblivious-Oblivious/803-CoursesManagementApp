@@ -22,6 +22,6 @@ public class CourseRemoverController {
         CourseRemoverBoundary remover = new CourseRemover(token.get_courses_db());
         remover.remove_course(id);
 
-        return "redirect:/courses?userid=" + token.id + "&username=" + token.username + "&password=" + token.password;
+        return "redirect:/courses?userid=" + token.id;
     }
 }

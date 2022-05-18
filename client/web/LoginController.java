@@ -19,7 +19,7 @@ public class LoginController {
         token.id = reg.id;
         LoginBoundary checker = new ProfessorLogin(token, new SqliteGatewayImplementation("Accounts"));
         if(checker.login())
-            return "redirect:/courses?userid=" + token.id + "&username=" + token.username + "&password=" + token.password;
+            return "redirect:/courses?userid=" + token.id;
         return "redirect:/login";
         /* TODO Add a message dialog that rejects invalid inputs */
     }

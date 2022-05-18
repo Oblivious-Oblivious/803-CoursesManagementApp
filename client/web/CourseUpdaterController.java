@@ -31,7 +31,7 @@ public class CourseUpdaterController {
             .edit_semester(course.semester)
             .update();
 
-            return "redirect:/courses?userid=" + token.id + "&username=" + token.username + "&password=" + token.password;
+            return "redirect:/courses?userid=" + token.id;
     }
 
     @GetMapping("/courses/update")

@@ -15,6 +15,7 @@ public class StatisticsCalculator implements StatisticsCalculatorBoundary {
         this.course = course;
     }
 
+    @Override
     public void set_strategies(ArrayList<StatisticsStrategy> strategies) {
         this.strategies = strategies;
     }

@@ -2,15 +2,15 @@
 
 ## Usage
 
-./mvnw spring-boot:run # Run on unix machines
+$ ./mvnw spring-boot:run # Run on unix machines
 
-mvnw.cmd spring-boot:run # Run on windows
+$ mvnw.cmd spring-boot:run # Run on windows
 
 ## Testing
 
-make test
+$ make test
 
-make testdb
+$ make testdb
 
 ## Development
 

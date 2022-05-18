@@ -44,12 +44,12 @@ public class StudentUpdaterTest extends SpecModule {
                 this.test.get_students_db().save(this.kongeo);
             });
 
-            xit("creates a student updater object", () -> {
+            it("creates a student updater object", () -> {
                 StudentUpdater updater = new StudentUpdater(this.test, this.athpap.id);
                 assert_that(updater).isnot(null);
             });
 
-            xit("updates the name of a specific student", () -> {
+            it("updates the name of a specific student", () -> {
                 StudentUpdater updater = new StudentUpdater(this.test, this.athpap.id);
                 updater
                     .edit_name("edited name")
@@ -59,7 +59,7 @@ public class StudentUpdaterTest extends SpecModule {
                 assert_that(st.name).equals_to("edited name");
             });
 
-            xit("updates all fields using the builder pattern", () -> {
+            it("updates all fields using the builder pattern", () -> {
                 StudentUpdater updater = new StudentUpdater(this.test, this.kongeo.id);
                 updater
                     .edit_name("new name")

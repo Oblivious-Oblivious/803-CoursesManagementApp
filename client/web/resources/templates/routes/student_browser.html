@@ -31,7 +31,7 @@
                     </button>
                     <div style="margin: 0.5rem"></div>
                     <button>
-                        <a th:href="@{/courses/{cid}/students/{sid}/grades(cid = ${courseid}, sid = ${student.id})}">Grades</a>
+                        <a th:href="@{/courses/{courseid}/students/{studentid}/grades(courseid = ${courseid}, studentid = ${student.id}, userid=${userid})}">Grades</a>
                     </button>
                 </td>
             </tr>
@@ -39,7 +39,7 @@
     </table>
 
     <button>
-        <a th:href="@{/courses/{cid}/students/add(cid=${courseid}, userid=${userid})}">
+        <a th:href="@{/courses/{courseid}/students/add(courseid=${courseid}, userid=${userid})}">
             Add student
         </a>
     </button>

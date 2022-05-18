@@ -2,7 +2,7 @@
 <div th:fragment="header">
     <header>
         <nav class="logo">
-            <div th:replace="layout/header/logo :: logo" />
+            <div th:replace="layout/header/logo :: logo(userid=${userid})" />
         </nav>
     
         <nav class="route-links">

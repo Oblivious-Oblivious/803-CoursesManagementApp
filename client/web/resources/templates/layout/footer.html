@@ -1,6 +1,6 @@
 <footer th:fragment="footer">
     <div class="copyright">
-        <div th:replace="layout/footer/copyright :: copyright" />
+        <div th:replace="layout/footer/copyright :: copyright(userid=${userid})" />
     </div>
 
     <hr class="divider">

@@ -1,6 +1,6 @@
 <div th:fragment="copyright">
     <div class="copyright">
-        <a href="/" draggable="false">
+        <a th:href="@{/courses(userid=${userid})}" draggable="false">
             <img class="logo" src="/img/logo.png" alt="CMA logo" draggable="false">
         </a>
         <div class="copyright-text">

@@ -17,25 +17,25 @@ import persistence.SqliteGatewayImplementation;
 @Controller
 public class CourseAdderController {
     @PostMapping("/add_new_course")
-    public String add_new_course(@RequestParam("userid") String userid, Course course) {
+    public String add_new_course(@RequestParam("userid") String userid, Course new_course) {
         PersistenceGateway accounts_db = new SqliteGatewayImplementation("Accounts");
         RegistrationToken token = (RegistrationToken)accounts_db.get_by_id(userid);
 
         CourseAdderBoundary adder = new CourseAdder(token.get_courses_db());
         adder.add_new_course(
-            course.name,
-            course.syllabus,
-            course.instructor,
-            course.year,
-            course.semester
+            new_course.name,
+            new_course.syllabus,
+            new_course.instructor,
+            new_course.year,
+            new_course.semester
         );
         return "redirect:/courses?userid=" + token.id;
     }
 
     @GetMapping("/courses/add")
     public String course_adder(@RequestParam("userid") String userid, Model model) {
-        Course course = new Course("", "", "", "", "");
-        model.addAttribute("course", course);
+        Course new_course = new Course("", "", "", "", "");
+        model.addAttribute("new_course", new_course);
         model.addAttribute("userid", userid);
         return "routes/course_adder";
     }

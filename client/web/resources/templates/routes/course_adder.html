@@ -3,7 +3,7 @@
 
 <div class="adder_wrapper">
     <h1>Add a new course</h1>
-    <form action="#" th:action="@{/add_new_course(userid=${userid})}" th:object="${course}" method="post">
+    <form action="#" th:action="@{/add_new_course(userid=${userid})}" th:object="${new_course}" method="post">
         <div class="text_field">
             <input type="text" th:field="*{name}" required>
             <span></span>

@@ -25,13 +25,12 @@
                 <td th:text="${course.year}" />
                 <td th:text="${course.semester}" />
                 <td>
-                    <!-- <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}">Update</a> -->
                     <button>
-                        <a th:href="@{/courses/update}">Update</a>
+                        <a th:href="@{/courses/update(id=${course.id})}">Update</a>
                     </button>
                     <div style="margin: 0.5rem"></div>
                     <button>
-                        <a href="#"
+                        <a th:href="@{/courses/remove(id=${course.id})}"
                            onclick="if(!(confirm('Are you sure you want to delete this course?'))) return false">
                            Delete
                         </a>

@@ -1,5 +1,7 @@
 package app.src.entities;
 
+import java.util.UUID;
+
 import persistence.SqliteGatewayImplementation;
 
 public class Course extends Identifiable {
@@ -12,14 +14,13 @@ public class Course extends Identifiable {
     private transient PersistenceGateway students_db;
 
     public Course(
-        String id,
         String name,
         String syllabus,
         String instructor,
         String year,
         String semester
     ) {
-        this.id = id;
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
         this.name = name;
         this.syllabus = syllabus;
         this.instructor = instructor;
@@ -27,12 +28,43 @@ public class Course extends Identifiable {
         this.semester = semester;
 
         /* TODO Figure out way to inject this */
-        this.students_db = new SqliteGatewayImplementation(this.id + "_enrolled_students");
+        this.students_db = new SqliteGatewayImplementation("Course_" + this.id + "_enrolled_students");
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSyllabus() {
+        return this.syllabus;
+    }
+    public void setSyllabus(String syllabus) {
+        this.syllabus = syllabus;
+    }
+    public String getInstructor() {
+        return this.instructor;
+    }
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
+    public String getYear() {
+        return this.year;
+    }
+    public void setYear(String year) {
+        this.year = year;
+    }
+    public String getSemester() {
+        return this.semester;
+    }
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public PersistenceGateway get_students_db() {
         if(this.students_db == null)
-            this.students_db = new SqliteGatewayImplementation(this.id + "_enrolled_students");
+            this.students_db = new SqliteGatewayImplementation("Course_" + this.id + "_enrolled_students");
         return this.students_db;
     }
 

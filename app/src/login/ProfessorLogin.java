@@ -1,5 +1,9 @@
 package app.src.login;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import app.src.boundaries.LoginBoundary;
 import app.src.entities.Identifiable;
 import app.src.entities.PersistenceGateway;
@@ -16,7 +20,6 @@ public class ProfessorLogin implements LoginBoundary {
 
     @Override
     public boolean login() {
-        /* TODO Change method of searching to search by name or id */
         for(Identifiable acc : this.accounts_db.get_all_items())
             if(((RegistrationToken)acc).equals(this.token))
                 return true;

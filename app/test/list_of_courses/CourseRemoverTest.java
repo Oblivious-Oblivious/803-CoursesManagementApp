@@ -18,7 +18,6 @@ public class CourseRemoverTest extends SpecModule {
     public void spec_code() {
         before(() -> {
             this.kavousianos = new Course(
-                "c1",
                 "Digital Design I",
                 "Some info about ditital design 1",
                 "Kavousianos",
@@ -26,7 +25,6 @@ public class CourseRemoverTest extends SpecModule {
                 "3"
             );
             this.zarras = new Course(
-                "c2",
                 "Software Engineering",
                 "More info about S. E.",
                 "Zarras",
@@ -34,7 +32,6 @@ public class CourseRemoverTest extends SpecModule {
                 "8"
             );
             this.anastasiadis = new Course(
-                "c3",
                 "Operating Systems",
                 "OS class information and syllabus",
                 "Anastasiadis",
@@ -60,7 +57,7 @@ public class CourseRemoverTest extends SpecModule {
 
                 assert_that(this.courses.get_all_items().size()).equals_to(2);
 
-                Course first_course = (Course)this.courses.get_by_id("c1");
+                Course first_course = (Course)this.courses.get_all_items().get(0);
                 assert_that(first_course.equals(this.kavousianos)).is(true);
             });
 

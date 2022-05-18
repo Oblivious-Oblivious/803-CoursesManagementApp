@@ -27,3 +27,6 @@ replay_pid*
 *.docx
 *.pages
 /bin/
+
+# jspec
+libs/jspec.jar

@@ -23,28 +23,32 @@ DBOUTPUT = persistence/**/src/*.class persistence/*.class
 DBTESTOUTPUT = persistence/**/test/*.class persistence/*.class persistence/**/src/*.db
 STATSOUTPUT = statistics/**/*.class statistics/*.class
 CLIOUTPUT = client/cli/*.class
-WEBOUTPUT =
+WEBOUTPUT = target
 
 all: compile
 
-compile:
+compile: compile_jspec
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPINPUT) $(DBINPUT) $(STATSINPUT)
 	@echo
+
+compile_jspec:
+	cd jspec && make
+	mv jspec/export/jspec.jar libs/
 
 test: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(APPTESTINPUT)
 	$(JAVA) $(LIBS) app/test/TestRunner
 
-testdb:
+testdb: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(DBINPUT) $(DBTESTINPUT)
 	$(JAVA) $(LIBS) persistence/TestRunner
 
-cli:
+cli: compile
 	$(CC) $(LIBS) $(OPT) $(VERSION) $(HEADERS) $(FLAGS) $(WARNINGS) $(REMOVE_WARN) $(CLIINPUT)
 	$(JAVA) $(LIBS) client/cli/EntryPoint
 
 web: compile
-	cd ./client/web/boot_backend && ./mvnw spring-boot:run
+	./mvnw spring-boot:run
 
 clean:
-	$(RM) $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT)
+	$(RM) -rf $(APPOUTPUT) $(APPTESTOUTPUT) $(CLIOUTPUT) $(GUIOUTPUT) $(WEBOUTPUT) $(DBOUTPUT) $(DBTESTOUTPUT) $(STATSOUTPUT) $(WEBOUTPUT)

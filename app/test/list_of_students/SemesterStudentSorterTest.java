@@ -18,7 +18,6 @@ public class SemesterStudentSorterTest extends SpecModule {
         describe("SemesterStudentSorter object", () -> {
             before(() -> {
                 this.course = new Course(
-                    "id",
                     "name",
                     "syllabus",
                     "instructor",
@@ -26,19 +25,16 @@ public class SemesterStudentSorterTest extends SpecModule {
                 );
 
                 this.course.get_students_db().save(new StudentRegistration(
-                    "4147",
                     "Papapostolou",
                     "2017",
                     "10"
                 ));
                 this.course.get_students_db().save(new StudentRegistration(
-                    "4392",
                     "Koureas",
                     "2018",
                     "8"
                 ));
                 this.course.get_students_db().save(new StudentRegistration(
-                    "4333",
                     "Georgiou",
                     "2019",
                     "6"

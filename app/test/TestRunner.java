@@ -24,7 +24,6 @@ public class TestRunner {
             new CourseBrowserTest(),
             new CourseRemoverTest(),
             new CourseUpdaterTest(),
-            new IdCourseSorterTest(),
             new InstructorCourseSorterTest(),
             new NameCourseSorterTest(),
             new NullCourseSorterTest(),
@@ -32,7 +31,6 @@ public class TestRunner {
             new SyllabusCourseSorterTest(),
             new YearCourseSorterTest(),
             
-            new IdStudentSorterTest(),
             new NameStudentSorterTest(),
             new NullStudentSorterTest(),
             new SemesterStudentSorterTest(),

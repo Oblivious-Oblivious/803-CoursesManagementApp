@@ -12,7 +12,6 @@ public abstract class StatisticsStrategy {
         double project_weight = 0.3;
         double grades_doubles[] = new double[latest.size()];
         for(int i = 0; i < latest.size(); i++)
-            /* TODO write explanation comment or abstract more */
             grades_doubles[i] =
                 Double.parseDouble(String.format("%.3f",
                     project_weight * Double.parseDouble(latest.get(i).project)

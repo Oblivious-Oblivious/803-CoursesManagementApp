@@ -12,9 +12,8 @@ public class StudentAdder implements StudentAdderBoundary {
     }
 
     @Override
-    public void add_new_student(String id, String name, String year_of_registration, String semester) {
+    public void add_new_student(String name, String year_of_registration, String semester) {
         this.course.get_students_db().save(new StudentRegistration(
-            id,
             name,
             year_of_registration,
             semester

@@ -12,9 +12,8 @@ public class CourseAdder implements CourseAdderBoundary {
     }
 
     @Override
-    public void add_new_course(String id, String name, String syllabus, String instructor, String year, String semester) {
+    public void add_new_course(String name, String syllabus, String instructor, String year, String semester) {
         this.courses_db.save(new Course(
-            id,
             name,
             syllabus,
             instructor,

@@ -19,7 +19,6 @@ public class GradesCalculatorTest extends SpecModule {
         describe("GradesCalculator object", () -> {
             before(() -> {
                 this.course = new Course(
-                    "id",
                     "name",
                     "syllabus",
                     "instructor",
@@ -29,19 +28,16 @@ public class GradesCalculatorTest extends SpecModule {
 
                 StudentAdder student_adder = new StudentAdder(this.course);
                 student_adder.add_new_student(
-                    "4147",
                     "Ath Pap",
                     "2017",
                     "10"
                 );
                 student_adder.add_new_student(
-                    "4392",
                     "Ath Kour",
                     "2018",
                     "8"
                 );
                 student_adder.add_new_student(
-                    "4333",
                     "Kon Geo",
                     "2018",
                     "8"
@@ -52,10 +48,10 @@ public class GradesCalculatorTest extends SpecModule {
                 GradesAdder grades_adder0 = new GradesAdder((StudentRegistration)students.get(0));
                 GradesAdder grades_adder1 = new GradesAdder((StudentRegistration)students.get(1));
                 GradesAdder grades_adder2 = new GradesAdder((StudentRegistration)students.get(2));
-                grades_adder0.add_new_grades("0_8", "8.0", "2.5", "6");
-                grades_adder0.add_new_grades("0_10", "8.0", "7.5", "8");
-                grades_adder1.add_new_grades("1_10", "5.0", "8.5", "8");
-                grades_adder2.add_new_grades("2_10", "9.5", "10.0", "8");
+                grades_adder0.add_new_grades("8.0", "2.5", "6");
+                grades_adder0.add_new_grades("8.0", "7.5", "8");
+                grades_adder1.add_new_grades("5.0", "8.5", "8");
+                grades_adder2.add_new_grades("9.5", "10.0", "8");
             });
 
             it("creates a grades calculator object", () -> {

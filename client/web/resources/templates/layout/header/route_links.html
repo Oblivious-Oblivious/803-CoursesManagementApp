@@ -18,7 +18,7 @@
 <div class="route_links" th:fragment="route_links">
     <ul>
         <li>
-            <a class="u1" href="/courses/add">Add</a>
+            <a class="u1" th:href="@{/courses/add(userid=${userid})}">Add</a>
         </li>
         <!-- <li>
             <a class="u2" href="/courses">Courses</a>

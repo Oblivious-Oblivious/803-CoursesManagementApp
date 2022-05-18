@@ -1,9 +1,9 @@
 <div th:replace="layout/imports :: imports" />
-<div th:replace="layout/header :: header" />
+<div th:replace="layout/header :: header(userid=${userid})" />
 
 <div class="adder_wrapper">
     <h1>Add a new course</h1>
-    <form action="#" th:action="@{/add_new_course}" th:object="${course}" method="post">
+    <form action="#" th:action="@{/add_new_course(userid=${userid})}" th:object="${course}" method="post">
         <div class="text_field">
             <input type="text" th:field="*{name}" required>
             <span></span>

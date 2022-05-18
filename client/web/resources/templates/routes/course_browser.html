@@ -1,7 +1,5 @@
-<title>Course Browser</title>
-
 <div th:replace="layout/imports :: imports" />
-<div th:replace="layout/header :: header" />
+<div th:replace="layout/header :: header(userid=${userid})" />
 
 <!-- TODO Implement the item sorter -->
 <div class="wrapper">
@@ -26,11 +24,11 @@
                 <td th:text="${course.semester}" />
                 <td>
                     <button>
-                        <a th:href="@{/courses/update(id=${course.id})}">Update</a>
+                        <a th:href="@{/courses/update(id=${course.id}, userid=${userid})}">Update</a>
                     </button>
                     <div style="margin: 0.5rem"></div>
                     <button>
-                        <a th:href="@{/courses/remove(id=${course.id})}"
+                        <a th:href="@{/courses/remove(id=${course.id}, userid=${userid})}"
                            onclick="if(!(confirm('Are you sure you want to delete this course?'))) return false">
                            Delete
                         </a>

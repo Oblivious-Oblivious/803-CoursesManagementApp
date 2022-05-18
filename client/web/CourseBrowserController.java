@@ -15,6 +15,7 @@ import app.src.list_of_courses.NameCourseSorter;
 public class CourseBrowserController {
     @GetMapping("/courses")
     public String course_browser(
+        @RequestParam("userid") String userid,
         @RequestParam("username") String username,
         @RequestParam("password") String password,
         Model model
@@ -22,6 +23,7 @@ public class CourseBrowserController {
         RegistrationToken token = new RegistrationToken(username, password);
         CourseBrowserBoundary browser = new CourseBrowser(token.get_courses_db(), new NameCourseSorter());
         model.addAttribute("course_list", browser.list_courses());
+        model.addAttribute("userid", userid);
         return "routes/course_browser";
     }
 }

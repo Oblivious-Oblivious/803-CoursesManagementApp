@@ -6,7 +6,7 @@
         </nav>
     
         <nav class="route-links">
-            <div th:replace="layout/header/route_links :: route_links" />
+            <div th:replace="layout/header/route_links :: route_links(userid=${userid})" />
         </nav>
     </header>
 

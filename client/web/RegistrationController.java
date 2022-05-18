@@ -16,9 +16,10 @@ public class RegistrationController {
     @PostMapping("/save_registration_token")
     public String save_registration_token(RegistrationToken reg) {
         RegistrationToken token = new RegistrationToken(reg.username, reg.password);
+        token.id = reg.id;
         RegisterBoundary checker = new ProfessorRegistration(token, new SqliteGatewayImplementation("Accounts"));
         if(checker.register())
-            return "redirect:/courses?username=" + token.username + "&password=" + token.password;
+            return "redirect:/courses?userid=" + token.id + "&username=" + token.username + "&password=" + token.password;
         return "redirect:/register";
         /* TODO Add a message dialog that rejects invalid inputs */
     }

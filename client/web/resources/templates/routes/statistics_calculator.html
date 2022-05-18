@@ -6,48 +6,18 @@
     <table class="content-table">
         <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Year of Registration</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Action</th>
+                <th scope="col">Type of Stat</th>
+                <th scope="col">Result</th>
             </tr>
         </thead>
     
         <tbody>
-            <tr th:each="student : ${student_list}">
-                <td th:text="${student.name}" />
-                <td th:text="${student.year_of_registration}" />
-                <td th:text="${student.semester}" />
-                <td>
-                    <button>
-                        <a th:href="@{/courses/{courseid}/students/update(courseid=${courseid}, studentid=${student.id}, userid=${userid})}">Update</a>
-                    </button>
-                    <div style="margin: 0.5rem"></div>
-                    <button>
-                        <a th:href="@{/courses/{courseid}/students/remove(courseid=${courseid}, studentid=${student.id}, userid=${userid})}"
-                           onclick="if(!(confirm('Are you sure you want to delete this student registration?'))) return false">
-                           Delete
-                        </a>
-                    </button>
-                    <div style="margin: 0.5rem"></div>
-                    <button>
-                        <a th:href="@{/courses/{courseid}/students/{studentid}/grades(courseid = ${courseid}, studentid = ${student.id}, userid=${userid})}">Grades</a>
-                    </button>
-                </td>
+            <tr th:each="stat : ${stats_map}">
+                <td th:text="${stat.key}" />
+                <td th:text="${stat.value}" />
             </tr>
         </tbody>
     </table>
-
-    <button>
-        <a th:href="@{/courses/{courseid}/students/add(courseid=${courseid}, userid=${userid})}">
-            Add student
-        </a>
-    </button>
-    <button>
-        <a th:href="@{/courses/{courseid}/students/statistics(courseid=${courseid}, userid=${userid})}">
-            Calculate Statistics
-        </a>
-    </button>
 </div>
 
 <style>

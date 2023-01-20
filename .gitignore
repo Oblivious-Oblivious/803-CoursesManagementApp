@@ -25,7 +25,6 @@ replay_pid*
 # Word files
 *.doc
 *.docx
-*.pages
 /bin/
 
 # jspec
